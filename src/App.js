@@ -1,16 +1,21 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Header from "./Components/Header/Header"
-import NavBar from "./Components/NavBar/NavBar"
+import { useAuth0 } from "@auth0/auth0-react";
+import LogInPage from "./Components/LogInPage/LogInPage";
+import HomePage from "./Components/HomePage/HomePage";
 
 function App() {
-  return (
-    <>
-    <NavBar />
-    <Header />
-    </>
-  );
+  const { isAuthenticated } = useAuth0();
+    if (isAuthenticated) {
+      return (
+      <HomePage />
+      )
+    } else{
+      return (
+        <LogInPage />
+        )
+    };
 }
 
 export default App;

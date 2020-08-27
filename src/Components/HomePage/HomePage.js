@@ -2,14 +2,14 @@ import React from "react";
 import Header from "../Header/Header";
 import NavBar from "../NavBar/NavBar";
 
-function LogInPage() {
-  return (
-    <>
+function HomePage() {
+    return (
+      <>
       <NavBar />
       <Header />
-      <p>LOG IN PAGE</p>
-    </>
-  );
-}
-
-export default LogInPage;
+      <p>HOMEPAGE</p>
+      </>
+    );
+  }
+  
+  export default HomePage;
