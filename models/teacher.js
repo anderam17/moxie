@@ -2,11 +2,11 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const TeacherSchema = new Schema({
-    firstName: {
+    first_name: {
         type: String,
         required: true
     },
-    lastName: {
+    last_name: {
         type: String,
         required: true
     },

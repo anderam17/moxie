@@ -11,64 +11,63 @@ mongoose.connect(
 
 const studentSeed = [
   {
-    firstName: "Ashley",
-    lastName: "Bernal",
+    first_name: "Ashley",
+    last_name: "Bernal",
     grade: 8,
-    homeroomTeacher: "Anderson",
-    detentionStatus: false
+    homeroom_teacher: "Anderson",
+    detention_status: false
   },
   {
-    firstName: "Aaliyah",
-    lastName: "Kelly",
+    first_name: "Aaliyah",
+    last_name: "Kelly",
     grade: 7,
-    homeroomTeacher: "Cortes",
-    detentionStatus: false
+    homeroom_teacher: "Cortes",
+    detention_status: false
   },
   {
-    firstName: "Celine",
-    lastName: "Olmos",
+    first_name: "Celine",
+    last_name: "Olmos",
     grade: 6,
-    homeroomTeacher: "Lytle",
-    detentionStatus: false
+    homeroom_teacher: "Lytle",
+    detention_status: false
   },
 ];
 
 const teacherSeed = [
     {
-      firstName: "Allana",
-      lastName: "Anderson",
+      first_name: "Allana",
+      last_name: "Anderson",
       subject: "Math",
-      students: [],
     },
     {
-        firstName: "Maia",
-        lastName: "Holmes",
+        first_name: "Maia",
+        last_name: "Holmes",
         subject: "Science",
-        students: [],
+
       },
       {
-        firstName: "Anthony",
-        lastName: "Cortes",
+        first_name: "Anthony",
+        last_name: "Cortes",
         subject: "History",
-        students: [],
+
       },
       {
-        firstName: "Darren",
-        lastName: "Blackman",
+        first_name: "Darren",
+        last_name: "Blackman",
         subject: "Tech",
-        students: [],
+
       },
       {
-        firstName: "Sam",
-        lastName: "Casanova",
+        first_name: "Sam",
+        last_name: "Casanova",
         subject: "Reading",
-        students: [],
+
       },
       {
-        firstName: "Marc",
-        lastName: "Lytle",
+        first_name: "Marc",
+        last_name: "Lytle",
         subject: "Writing",
-        students: [],
+
       },
   ];
 

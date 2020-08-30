@@ -2,11 +2,11 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const StudentSchema = new Schema({
-    firstName: {
+    first_name: {
         type: String,
         required: true
     },
-    lastName: {
+    last_name: {
         type: String,
         required: true
     },
@@ -14,11 +14,11 @@ const StudentSchema = new Schema({
         type: Number,
         required: true
     },
-    homeroomTeacher: {
+    homeroom_teacher: {
         type: String,
         required: true
     },
-    detentionStatus: {
+    detention_status: {
         type: Boolean,
         required: true
     },
