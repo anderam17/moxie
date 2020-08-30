@@ -6,7 +6,7 @@ const db = require("../models");
 //!CHANGE NAME FROM REACTREADINGLIST
 mongoose.connect(
   process.env.MONGODB_URI ||
-  "mongodb://localhost/reactreadinglist"
+  "mongodb://localhost/schooldb"
 );
 
 const studentSeed = [
