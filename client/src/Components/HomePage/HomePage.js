@@ -16,7 +16,7 @@ function HomePage() {
       last_name="Bernal"
       grade="8"
       detention="No"
-      onClick={}
+      onClick={() => {}}
       />
 
       <p>HOMEPAGE</p>

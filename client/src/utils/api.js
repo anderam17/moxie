@@ -31,8 +31,20 @@ export default {
   },
   updateStudent: (id, studentData) => {
     return axios.put(`/api/students/${id}`, studentData);
+  },
+  getTeachers: () => {
+    return axios.get("/api/teachers");
+  },
+  addTeacher: (teacherData) => {
+    return axios.post("/api/teachers", teacherData);
+  },
+  deleteTeacher: (id) => {
+    return axios.delete("/api/teachers/:id", id);
+  },
+  updateTeacher: (id, teacherData) => {
+    return axios.put(`/api/teachers/${id}`, teacherData);
+  },
+  getTeacherById: (id) => {
+    return axios.get("/api/teachers/:id", id);
   }
-  // getTeachers: () => {
-  //   return axios.get("/teachers");
-  // },
 };

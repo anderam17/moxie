@@ -82,3 +82,15 @@ db.Student
     console.error(err);
     process.exit(1);
   });
+
+  db.Teacher
+  .remove({})
+  .then(() => db.Teacher.collection.insertMany(teacherSeed))
+  .then(data => {
+    console.log(data.result.n + " records inserted!");
+    process.exit(0);
+  })
+  .catch(err => {
+    console.error(err);
+    process.exit(1);
+  });
