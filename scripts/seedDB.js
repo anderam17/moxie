@@ -76,7 +76,6 @@ db.Student
   .then(() => db.Student.collection.insertMany(studentSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
-    process.exit(0);
   })
   .catch(err => {
     console.error(err);
@@ -88,7 +87,6 @@ db.Student
   .then(() => db.Teacher.collection.insertMany(teacherSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
-    process.exit(0);
   })
   .catch(err => {
     console.error(err);

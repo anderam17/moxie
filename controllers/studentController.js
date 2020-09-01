@@ -21,9 +21,11 @@ module.exports = {
       });
   },
   create: (req, res) => {
+    //after created, get _id for stu and push to corr teacher arr
       db.Student.create(req.body)
-      .then((student) => {
-        res.json(student);
+      .then(({_id}) => db.Teacher.findOneAndUpdate({_id: req.body.teacherId}, { $push: { students: _id } }, { new: true }))
+      .then(dbTeacher => {
+        res.json(dbTeacher);
       })
       .catch((err) => {
         res.json(err);

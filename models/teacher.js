@@ -13,7 +13,13 @@ const TeacherSchema = new Schema({
     subject: {
         type: String,
         required: true
-    }
+    },
+    students: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: "Student"
+        }
+    ]
 });
 
 const Teacher = mongoose.model("Teacher", TeacherSchema);

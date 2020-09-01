@@ -22,14 +22,10 @@ const StudentSchema = new Schema({
         type: Boolean,
         required: true
     },
-    //! double check that's how you do it
-    // teacher: {
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'Teacher',
-    //     required: true
-    // },
-    // Mongoose has a feature called 'populate'
-    // db.Student.find(...).populate('teacher')
+    teacherId: {
+        type: String,
+        required: true
+    }
 });
 
 const Student = mongoose.model("Student", StudentSchema);

@@ -13,6 +13,7 @@ module.exports = {
   //! How to include Student line include: [Teacher]
   findOne: (req, res) => {
     db.Teacher.findOne({ _id: req.params.id })
+    .populate("students")
       .then((teacher) => {
         res.json(teacher);
       })

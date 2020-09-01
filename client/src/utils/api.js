@@ -8,12 +8,17 @@ export default {
   getStudentById: (id) => {
     return axios.get("/api/students/:id", id);
   },
-  getStudentsByDetention: (detentionStatus) => {
-    return axios.get("/api/students", { params: { detention_status: detentionStatus } });
+  getStudentsFiltered: (category, value) => {
+
+    return axios.get("/api/students", { params: { [category]: value } });
   },
-  getStudentsByGrade: (grade) => {
-    return axios.get("/api/students", { params: { grade: grade } });
-  },
+  //! DO I NEED THESE ANYMORE?
+  // getStudentsByDetention: (detentionStatus) => {
+  //   return axios.get("/api/students", { params: { detention_status: detentionStatus } });
+  // },
+  // getStudentsByGrade: (grade) => {
+  //   return axios.get("/api/students", { params: { grade: grade } });
+  // },
   getStudentsByFirstName: (firstName) => {
     return axios.get("/api/students", { params: { first_name: firstName } });
   },

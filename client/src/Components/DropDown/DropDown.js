@@ -1,10 +1,10 @@
 import React from "react";
 
-function DropDown({ field, options, id }) {
+function DropDown({ field, options, id, onChange}) {
   return (
     <>
       <div className="nav-item mb-1 p-2">
-        <select className="form-control custom-select-lg" id={id}>
+        <select className="form-control custom-select-lg" data-id={id} onChange={onChange}>
           <option value="">{field}</option>
           {options.map((item) => {
             return (
