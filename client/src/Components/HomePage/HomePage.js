@@ -10,6 +10,7 @@ function HomePage() {
   const [students, setStudents] = useState([]);
 
   const fetchStudents = (category, value) => {
+    console.log(`Category: ${category} Value: ${value}`)
     API.getStudentsFiltered(category, value).then(response => {
       setStudents(response.data);
     });

@@ -6,6 +6,7 @@ import Button from "../Button/Button";
 function SideBar({ fetchStudents }) {
   const filterStudents = (category) => (event) => {
     fetchStudents(category, event.target.value);
+
   };
 
   return (
@@ -18,11 +19,11 @@ function SideBar({ fetchStudents }) {
             <option value="">Teacher</option>
           </select>
         </div>
-        <DropDown field="Grade" options={[6, 7, 8]} id="gradeSearch" onChange={filterStudents('grade')} />
+        <DropDown field="Grade" options={[{search: 6, print: "6th"},{search: 7, print: "7th"}, {search: 8, print: "8th"}]} id="gradeSearch" onChange={filterStudents('grade')} />
         <DropDown
           onChange={filterStudents('detention_status')}
           field="Detention"
-          options={["Has Detention", "Does not have Detention"]}
+          options={[{search: 1, print: "Has Detention"},{search: 0, print: "Does not have Detention"}]}
           id="detentionSearch"
         />
         <SearchForm />

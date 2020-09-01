@@ -9,6 +9,7 @@ function CardContainer({stuCards}) {
         {stuCards.map((student) => {
           return (
             <StudentCard
+            key={student._id}
             id={student._id}
             first_name={student.first_name}
               last_name={student.last_name}
@@ -18,14 +19,6 @@ function CardContainer({stuCards}) {
             />
           )
         })}
-        {/* <StudentCard
-              id="6"
-              first_name="Ashley"
-              last_name="Bernal"
-              grade="8"
-              detention="No"
-              onClick={() => {}}
-            /> */}
       </div>
     </>
   );
