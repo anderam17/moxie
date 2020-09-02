@@ -19,10 +19,10 @@ function HomePage() {
   const handleChange = (name, value) => {
     setSingleStudent({...singleStudent, [name]: value});
   };
-//*!!!
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    API.getStudentsByName(first_name, last_name).then((response) => {
+    API.getStudentsByName(first_name.trim(), last_name.trim()).then((response) => {
       console.log(response.data);
         setStudents(response.data);
       }); 

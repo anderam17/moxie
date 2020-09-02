@@ -7,11 +7,23 @@ import TeacherModal from "../TeacherModal/TeacherModal";
 
 function SideBar({ fetchStudents, onChange, onSubmit }) {
   const [teachers, setTeachers] = useState([]);
+  const [modalStatus, setModalStatus] = useState({
+    isOpen: false
+  });
 
-  // const [show, setShow] = useState(false);
+  const openModal = () => setModalStatus({ isOpen: true });
+  const closeModal = () => setModalStatus({ isOpen: false });
 
-  // const handleClose = () => setShow(false);
-  // const handleShow = () => setShow(true);
+  // const [modalStatus, setModalStatus] = useState(false);
+
+  // const showModal = (e) => {
+  //   if(modalStatus){
+  //     setModalStatus(false);
+  //   }else{
+  //     setModalStatus(true);
+  //   }
+  //   console.log(modalStatus);
+  // }
 
   const filterStudents = (category) => (event) => {
     fetchStudents(category, event.target.value);
@@ -77,16 +89,17 @@ function SideBar({ fetchStudents, onChange, onSubmit }) {
           // data-target="#studentModal"
         />
         <Button
-          onclick={() => {
-            // handleShow();
-          }}
+          onClick={openModal}
           id="addNewTeacher"
           type="button"
           title="Add New Teacher"
           dataTarget="#teacherModal"
         />
 
-        <TeacherModal  />
+        <TeacherModal  
+        show={modalStatus.isOpen}
+        onClick={closeModal}
+        />
       </div>
     </>
   );
