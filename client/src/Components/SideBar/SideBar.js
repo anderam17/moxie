@@ -121,7 +121,7 @@ function SideBar({ fetchStudents, onChange, onSubmit }) {
           newTeacher={newTeacher}
         />
 
-        <StudentModal show={modalStatus.student} onClick={() => closeModal()} />
+        <StudentModal show={modalStatus.student} onClick={() => closeModal()} teacherList={makeTeacherList()}/>
       </div>
     </>
   );
