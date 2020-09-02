@@ -1,11 +1,11 @@
 import React from "react";
 
-function Button({onclick, id, type, title, dataTarget}) {
+function Button({onClick, id, type, title, dataTarget}) {
   return (
     <>
-    <div className="btn-group btn-group-toggle" data-toggle="buttons">
-    <button className="btn btn-secondary" data-target="dataTarget" onClick={() => onclick()} id={id} type={type}> {title} </button>
-</div>
+    <button type={type} class="btn btn-primary" onClick={onClick} id={id} data-toggle="modal" data-target={dataTarget}>
+  {title}
+</button>
     </>
   );
 }

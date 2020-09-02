@@ -3,12 +3,22 @@ import DropDown from "../DropDown/DropDown";
 import SearchForm from "../SearchForm/SearchForm";
 import Button from "../Button/Button";
 import api from "../../utils/api";
+import TeacherModal from "../TeacherModal/TeacherModal";
 
-function SideBar({ fetchStudents }) {
+function SideBar({ fetchStudents, onChange, onSubmit }) {
   const [teachers, setTeachers] = useState([]);
+
+  // const [show, setShow] = useState(false);
+
+  // const handleClose = () => setShow(false);
+  // const handleShow = () => setShow(true);
 
   const filterStudents = (category) => (event) => {
     fetchStudents(category, event.target.value);
+  };
+
+  const getName = (name) => (event) => {
+    onChange(name, event.target.value)
   };
 
   useEffect(() => {
@@ -19,7 +29,7 @@ function SideBar({ fetchStudents }) {
   }, []);
 
   const makeTeacherlist = () => {
-   return teachers.map((teacher) => {
+    return teachers.map((teacher) => {
       return {
         search: teacher.id,
         print: `${teacher.first_name} ${teacher.last_name}`,
@@ -27,20 +37,11 @@ function SideBar({ fetchStudents }) {
     });
   };
 
-  console.log(teachers);
-
   return (
     <>
       <div className="sidebar nav flex-column col-md-3 text-center mx-auto">
-        <h3 class="left lead">Filter Students By:</h3>
-
-        {/* <div className="nav-item mb-1 p-2">
-          <select className="form-control  custom-select-lg" id="teacher">
-            <option value="">Teacher</option>
-          </select>
-        </div> */}
+        <h3 className="left lead">Filter Students By:</h3>
         {/* //!might not need fild or id here idk */}
-        {/* !This is the current project */}
         <DropDown
           onChange={filterStudents("teacherId")}
           field="Teacher"
@@ -67,7 +68,7 @@ function SideBar({ fetchStudents }) {
           ]}
           id="detentionSearch"
         />
-        <SearchForm />
+        <SearchForm onChange={getName} onClick={onSubmit}/>
         <Button
           onclick={() => {}}
           id="addNewStudent"
@@ -76,12 +77,16 @@ function SideBar({ fetchStudents }) {
           // data-target="#studentModal"
         />
         <Button
-          onclick={() => {}}
+          onclick={() => {
+            // handleShow();
+          }}
           id="addNewTeacher"
           type="button"
           title="Add New Teacher"
-          // data-target="#teacherModal"
+          dataTarget="#teacherModal"
         />
+
+        <TeacherModal  />
       </div>
     </>
   );

@@ -1,6 +1,6 @@
 import React from "react";
 
-function Input({id, placeholder}) {
+function Input({id, placeholder, onChange}) {
   return (
     <>
       <input
@@ -9,6 +9,7 @@ function Input({id, placeholder}) {
             type="search"
             placeholder={placeholder}
             aria-label="Search"
+            onChange={onChange}
           />
     </>
   );

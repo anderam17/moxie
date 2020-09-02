@@ -8,6 +8,25 @@ import API from "../../utils/api";
 
 function HomePage() {
   const [students, setStudents] = useState([]);
+  const [singleStudent, setSingleStudent] = useState({
+    first_name: "",
+    last_name: ""
+  });
+
+  const {first_name, last_name} = singleStudent;
+
+
+  const handleChange = (name, value) => {
+    setSingleStudent({...singleStudent, [name]: value});
+  };
+//*!!!
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    API.getStudentsByName(first_name, last_name).then((response) => {
+      console.log(response.data);
+        setStudents(response.data);
+      }); 
+  };
 
   const fetchStudents = (category, value) => {
     console.log(`Category: ${category} Value: ${value}`)
@@ -20,9 +39,9 @@ function HomePage() {
     <>
       <NavBar />
       <Header />
-      <div class="self-container">
+      <div className="self-container">
         <div className="row">
-          <SideBar fetchStudents={fetchStudents} />
+          <SideBar fetchStudents={fetchStudents} onChange={handleChange} onSubmit={handleSubmit}/>
           <CardContainer 
           stuCards={students}
           />

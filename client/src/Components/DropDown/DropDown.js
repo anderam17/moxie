@@ -8,7 +8,7 @@ function DropDown({ field, options, id, onChange}) {
           <option value="">{field}</option>
           {options.map((item) => {
             return (
-              <option className="dropdown-item" value={item.search}>
+              <option key={item.print} className="dropdown-item" value={item.search}>
                 {" "}
                 {item.print}{" "}
               </option>

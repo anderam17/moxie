@@ -9,24 +9,10 @@ export default {
     return axios.get("/api/students/:id", id);
   },
   getStudentsFiltered: (category, value) => {
-
     return axios.get("/api/students", { params: { [category]: value } });
   },
-  //! DO I NEED THESE ANYMORE?
-  // getStudentsByDetention: (detentionStatus) => {
-  //   return axios.get("/api/students", { params: { detention_status: detentionStatus } });
-  // },
-  // getStudentsByGrade: (grade) => {
-  //   return axios.get("/api/students", { params: { grade: grade } });
-  // },
-  getStudentsByFirstName: (firstName) => {
-    return axios.get("/api/students", { params: { first_name: firstName } });
-  },
-  getStudentsByLastName: (lastName) => {
-    return axios.get("/api/students", { params: { last_name: lastName }});
-  },
-  getStudentsByFirstAndLastName: (firstName, lastName) => {
-    return axios.get("/api/students", { params: { first_name: firstName, last_name: lastName }});
+  getStudentsByName: (firstName, lastName) => {
+    return axios.get("/api/students", { params: (firstName && lastName ? { first_name: firstName, last_name: lastName } : firstName && !lastName ? { first_name: firstName} : { last_name: lastName}) });
   },
   addStudent: (studentData) => {
     return axios.post("/api/students", studentData);

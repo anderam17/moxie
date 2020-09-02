@@ -2,7 +2,7 @@ import React from "react";
 import Input from "../Input/Input"
 import Button from "../Button/Button"
 
-function SearchForm() {
+function SearchForm({onChange, onClick}) {
   return (
     <>
       <div className="nav-item mb-1 p-2">
@@ -11,13 +11,15 @@ function SearchForm() {
           <Input
             id="search-first-name"
             placeholder="First Name"
+            onChange={onChange("first_name")}
           />
           <Input
             id="search-last-name"
             placeholder="Last Name"
+            onChange={onChange("last_name")}
           />
           <Button
-          onclick={() => {}}
+          onClick={onClick}
           id="stuSearch"
           type="submit"
           title="Search"

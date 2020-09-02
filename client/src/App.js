@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { useAuth0 } from "@auth0/auth0-react";
 import LogInPage from "./Components/LogInPage/LogInPage";
 import HomePage from "./Components/HomePage/HomePage";
