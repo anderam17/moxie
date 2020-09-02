@@ -2,7 +2,7 @@ import React from "react";
 import MyButton from "../Button/Button";
 import { Modal, Button } from "react-bootstrap";
 
-function TeacherModal({ show, onClick }) {
+function TeacherModal({ show, onClick, handleFormSubmit, handleInputChange, newTeacher: {first_name, last_name, subject}}) {
   return (
     <>
       <Modal show={show}>
@@ -16,8 +16,11 @@ function TeacherModal({ show, onClick }) {
               <input
                 type="text"
                 className="form-control"
-                id="teacher_first_name"
-                placeholder=""
+                id="first_name"
+                placeholder="First Name"
+                value={first_name}
+                name="first_name"
+                onChange={handleInputChange}
               />
             </div>
 
@@ -26,8 +29,11 @@ function TeacherModal({ show, onClick }) {
               <input
                 type="text"
                 className="form-control"
-                id="teacher_last_name"
-                placeholder=""
+                id="last_name"
+                placeholder="Last Name"
+                value={last_name}
+                name="last_name"
+                onChange={handleInputChange}
               />
             </div>
 
@@ -37,7 +43,10 @@ function TeacherModal({ show, onClick }) {
                 type="text"
                 className="form-control"
                 id="subject"
-                placeholder=""
+                placeholder="Subject"
+                name="subject"
+                value={subject}
+                onChange={handleInputChange}
               />
             </div>
           </form>
@@ -47,7 +56,7 @@ function TeacherModal({ show, onClick }) {
             Close
           </Button>
           <MyButton
-          onClick={() => {}}
+          onClick={handleFormSubmit}
           id="submitNewTeacher"
           type="submit"
           title="Add Teacher"

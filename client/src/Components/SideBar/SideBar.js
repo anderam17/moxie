@@ -8,13 +8,20 @@ import StudentModal from "../StudentModal/StudentModal";
 
 function SideBar({ fetchStudents, onChange, onSubmit }) {
   const [teachers, setTeachers] = useState([]);
-  
-  const [modalStatus, setModalStatus] = useState({
-    teacher: false,
-    student: false
+  const [newTeacher, setNewTeacher] = useState({
+    first_name: "",
+    last_name: "",
+    subject: "",
+    students: [],
   });
 
-  const openModal = (modalName) => setModalStatus({ ...modalStatus, [modalName]: true });
+  const [modalStatus, setModalStatus] = useState({
+    teacher: false,
+    student: false,
+  });
+
+  const openModal = (modalName) =>
+    setModalStatus({ ...modalStatus, [modalName]: true });
   const closeModal = () => setModalStatus({ teacher: false, student: false });
 
   const filterStudents = (category) => (event) => {
@@ -30,7 +37,7 @@ function SideBar({ fetchStudents, onChange, onSubmit }) {
       console.log(`API call: ${response.data}`);
       setTeachers(response.data);
     });
-  }, []);
+  }, [teachers]);
 
   const makeTeacherList = () => {
     return teachers.map((teacher) => {
@@ -38,6 +45,23 @@ function SideBar({ fetchStudents, onChange, onSubmit }) {
         search: teacher.id,
         print: `${teacher.first_name} ${teacher.last_name}`,
       };
+    });
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setNewTeacher({ ...newTeacher, [name]: value });
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    api.addTeacher(newTeacher).then((response) => {
+      setNewTeacher({
+        first_name: "",
+        last_name: "",
+        subject: "",
+        students: [],
+      });
     });
   };
 
@@ -89,7 +113,13 @@ function SideBar({ fetchStudents, onChange, onSubmit }) {
           dataTarget="#teacherModal"
         />
 
-        <TeacherModal show={modalStatus.teacher} onClick={() => closeModal()} />
+        <TeacherModal
+          show={modalStatus.teacher}
+          onClick={() => closeModal()}
+          handleFormSubmit={handleFormSubmit}
+          handleInputChange={handleInputChange}
+          newTeacher={newTeacher}
+        />
 
         <StudentModal show={modalStatus.student} onClick={() => closeModal()} />
       </div>
@@ -98,4 +128,3 @@ function SideBar({ fetchStudents, onChange, onSubmit }) {
 }
 
 export default SideBar;
-

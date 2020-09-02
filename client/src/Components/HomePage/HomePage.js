@@ -12,6 +12,7 @@ function HomePage() {
     first_name: "",
     last_name: ""
   });
+  const [newStudent, setNewStudent] = useState({});
 
   const {first_name, last_name} = singleStudent;
 
@@ -27,6 +28,13 @@ function HomePage() {
         setStudents(response.data);
       }); 
   };
+
+  // const handleAddStudent = (event) => {
+  //   event.preventDefault();
+  //   API.addStudent(newStudent).then((response) => {
+  //     setNewStudent({});
+  //   })
+  // }
 
   const fetchStudents = (category, value) => {
     console.log(`Category: ${category} Value: ${value}`)

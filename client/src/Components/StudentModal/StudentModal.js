@@ -10,7 +10,7 @@ function StudentModal({ show, onClick }) {
           <Modal.Title>Add Student</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-        {/* <form action="" method="POST">
+         <form action="" method="POST">
               <div className="form-group">
                 <label for="">First Name</label>
                 <input type="text" className="form-control" id="student_first_name" placeholder="" />
@@ -30,21 +30,21 @@ function StudentModal({ show, onClick }) {
                 </select>
               </div>
               {/*!! !!LOAD TEACHER LIST */}
-              {/* <div className="form-group">
+               <div className="form-group">
                 <label for=""> Teacher Name</label>
                 <select className="custom-select" id="teacher-student">
                   <option value="">Teacher</option>
                 </select>
               </div>
               <div className="form-group">
-                  <label for=""> In Detention</label>
+                  <label for=""> Detention</label>
                 <select className="custom-select" id="detention">
                   <option value="">Detention</option>
                   <option value="false">No</option>
                   <option value="true">Yes</option>
                 </select>
               </div>
-            </form> */} 
+            </form> 
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={onClick}>
