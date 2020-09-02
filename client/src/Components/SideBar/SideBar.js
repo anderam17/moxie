@@ -1,29 +1,70 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import DropDown from "../DropDown/DropDown";
 import SearchForm from "../SearchForm/SearchForm";
 import Button from "../Button/Button";
+import api from "../../utils/api";
 
 function SideBar({ fetchStudents }) {
+  const [teachers, setTeachers] = useState([]);
+
   const filterStudents = (category) => (event) => {
     fetchStudents(category, event.target.value);
-
   };
+
+  useEffect(() => {
+    api.getTeachers().then((response) => {
+      console.log(`API call: ${response.data}`);
+      setTeachers(response.data);
+    });
+  }, []);
+
+  const makeTeacherlist = () => {
+   return teachers.map((teacher) => {
+      return {
+        search: teacher.id,
+        print: `${teacher.first_name} ${teacher.last_name}`,
+      };
+    });
+  };
+
+  console.log(teachers);
 
   return (
     <>
       <div className="sidebar nav flex-column col-md-3 text-center mx-auto">
         <h3 class="left lead">Filter Students By:</h3>
 
-        <div className="nav-item mb-1 p-2">
+        {/* <div className="nav-item mb-1 p-2">
           <select className="form-control  custom-select-lg" id="teacher">
             <option value="">Teacher</option>
           </select>
-        </div>
-        <DropDown field="Grade" options={[{search: 6, print: "6th"},{search: 7, print: "7th"}, {search: 8, print: "8th"}]} id="gradeSearch" onChange={filterStudents('grade')} />
+        </div> */}
+        {/* //!might not need fild or id here idk */}
+        {/* !This is the current project */}
         <DropDown
-          onChange={filterStudents('detention_status')}
+          onChange={filterStudents("teacherId")}
+          field="Teacher"
+          options={makeTeacherlist()}
+          id="teacherSearch"
+        />
+
+        <DropDown
+          field="Grade"
+          options={[
+            { search: 6, print: "6th" },
+            { search: 7, print: "7th" },
+            { search: 8, print: "8th" },
+          ]}
+          id="gradeSearch"
+          onChange={filterStudents("grade")}
+        />
+        <DropDown
+          onChange={filterStudents("detention_status")}
           field="Detention"
-          options={[{search: 1, print: "Has Detention"},{search: 0, print: "Does not have Detention"}]}
+          options={[
+            { search: 1, print: "Has Detention" },
+            { search: 0, print: "Does not have Detention" },
+          ]}
           id="detentionSearch"
         />
         <SearchForm />
