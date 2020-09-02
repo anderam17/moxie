@@ -4,33 +4,25 @@ import SearchForm from "../SearchForm/SearchForm";
 import Button from "../Button/Button";
 import api from "../../utils/api";
 import TeacherModal from "../TeacherModal/TeacherModal";
+import StudentModal from "../StudentModal/StudentModal";
 
 function SideBar({ fetchStudents, onChange, onSubmit }) {
   const [teachers, setTeachers] = useState([]);
+  
   const [modalStatus, setModalStatus] = useState({
-    isOpen: false
+    teacher: false,
+    student: false
   });
 
-  const openModal = () => setModalStatus({ isOpen: true });
-  const closeModal = () => setModalStatus({ isOpen: false });
-
-  // const [modalStatus, setModalStatus] = useState(false);
-
-  // const showModal = (e) => {
-  //   if(modalStatus){
-  //     setModalStatus(false);
-  //   }else{
-  //     setModalStatus(true);
-  //   }
-  //   console.log(modalStatus);
-  // }
+  const openModal = (modalName) => setModalStatus({ ...modalStatus, [modalName]: true });
+  const closeModal = () => setModalStatus({ teacher: false, student: false });
 
   const filterStudents = (category) => (event) => {
     fetchStudents(category, event.target.value);
   };
 
   const getName = (name) => (event) => {
-    onChange(name, event.target.value)
+    onChange(name, event.target.value);
   };
 
   useEffect(() => {
@@ -40,7 +32,7 @@ function SideBar({ fetchStudents, onChange, onSubmit }) {
     });
   }, []);
 
-  const makeTeacherlist = () => {
+  const makeTeacherList = () => {
     return teachers.map((teacher) => {
       return {
         search: teacher.id,
@@ -57,7 +49,7 @@ function SideBar({ fetchStudents, onChange, onSubmit }) {
         <DropDown
           onChange={filterStudents("teacherId")}
           field="Teacher"
-          options={makeTeacherlist()}
+          options={makeTeacherList()}
           id="teacherSearch"
         />
 
@@ -80,26 +72,26 @@ function SideBar({ fetchStudents, onChange, onSubmit }) {
           ]}
           id="detentionSearch"
         />
-        <SearchForm onChange={getName} onClick={onSubmit}/>
+        <SearchForm onChange={getName} onClick={onSubmit} />
+
         <Button
-          onclick={() => {}}
+          onClick={() => openModal("student")}
           id="addNewStudent"
           type="button"
           title="Add New Student"
-          // data-target="#studentModal"
+          data-target="#studentModal"
         />
         <Button
-          onClick={openModal}
+          onClick={() => openModal("teacher")}
           id="addNewTeacher"
           type="button"
           title="Add New Teacher"
           dataTarget="#teacherModal"
         />
 
-        <TeacherModal  
-        show={modalStatus.isOpen}
-        onClick={closeModal}
-        />
+        <TeacherModal show={modalStatus.teacher} onClick={() => closeModal()} />
+
+        <StudentModal show={modalStatus.student} onClick={() => closeModal()} />
       </div>
     </>
   );
@@ -107,9 +99,3 @@ function SideBar({ fetchStudents, onChange, onSubmit }) {
 
 export default SideBar;
 
-// {
-
-// <button class="btn  mb-1 p-2 sideBtn" type="button" data-toggle="modal" data-target="#studentModal">Add New Student</button>
-// <button type="button" data-toggle="modal" class="btn  mb-1 p-2 sideBtn" data-target="#teacherModal" id="addNewTeachers">Add New
-//   Teacher</button> */
-// }
