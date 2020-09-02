@@ -14,10 +14,6 @@ const StudentSchema = new Schema({
         type: Number,
         required: true
     },
-    homeroom_teacher: {
-        type: String,
-        required: true
-    },
     detention_status: {
         type: Boolean,
         required: true

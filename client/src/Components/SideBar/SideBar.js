@@ -14,6 +14,12 @@ function SideBar({ fetchStudents, onChange, onSubmit }) {
     subject: "",
     students: [],
   });
+  const [newStudent, setNewStudent] = useState({
+    first_name: "",
+    last_name: "",
+    grade: 0,
+    detention_status: false,
+  });
 
   const [modalStatus, setModalStatus] = useState({
     teacher: false,
@@ -42,7 +48,7 @@ function SideBar({ fetchStudents, onChange, onSubmit }) {
   const makeTeacherList = () => {
     return teachers.map((teacher) => {
       return {
-        search: teacher.id,
+        search: teacher._id,
         print: `${teacher.first_name} ${teacher.last_name}`,
       };
     });
@@ -53,6 +59,11 @@ function SideBar({ fetchStudents, onChange, onSubmit }) {
     setNewTeacher({ ...newTeacher, [name]: value });
   };
 
+  const handleStudentInputChange = (e) => {
+    const { name, value } = e.target;
+    setNewStudent({ ...newTeacher, [name]: value });
+  };
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
     api.addTeacher(newTeacher).then((response) => {
@@ -61,6 +72,19 @@ function SideBar({ fetchStudents, onChange, onSubmit }) {
         last_name: "",
         subject: "",
         students: [],
+      });
+    });
+  };
+
+  const handleStudentFormSubmit = (e) => {
+    e.preventDefault();
+    api.addStudent(newStudent).then((response) => {
+      setNewTeacher({
+        first_name: "",
+        last_name: "",
+        grade: 0,
+        detention_status: false,
+        teacherId: ""
       });
     });
   };
@@ -121,7 +145,14 @@ function SideBar({ fetchStudents, onChange, onSubmit }) {
           newTeacher={newTeacher}
         />
 
-        <StudentModal show={modalStatus.student} onClick={() => closeModal()} teacherList={makeTeacherList()}/>
+        <StudentModal
+          show={modalStatus.student}
+          onClick={() => closeModal()}
+          teacherList={makeTeacherList()}
+          handleFormSubmit={handleStudentFormSubmit}
+          handleInputChange={handleStudentInputChange}
+          newStudent={newStudent}
+        />
       </div>
     </>
   );

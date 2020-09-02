@@ -3,7 +3,14 @@ import MyButton from "../Button/Button";
 import { Modal, Button } from "react-bootstrap";
 import DropDown from "../DropDown/DropDown";
 
-function StudentModal({ show, onClick, teacherList }) {
+function StudentModal({
+  show,
+  onClick,
+  teacherList,
+  handleFormSubmit,
+  handleInputChange,
+  newStudent: { first_name, last_name, grade, detention_status, teacherId },
+}) {
   return (
     <>
       <Modal show={show}>
@@ -18,7 +25,10 @@ function StudentModal({ show, onClick, teacherList }) {
                 type="text"
                 className="form-control"
                 id="student_first_name"
-                placeholder=""
+                placeholder="First Name"
+                value={first_name}
+                name="first_name"
+                onChange={handleInputChange}
               />
             </div>
 
@@ -28,38 +38,39 @@ function StudentModal({ show, onClick, teacherList }) {
                 type="text"
                 className="form-control"
                 id="student_last_name"
-                placeholder=""
+                placeholder="Last Name"
+                value={last_name}
+                name="last_name"
+                onChange={handleInputChange}
               />
             </div>
-            <div className="form-group">
-              <label for=""> Grade level</label>
-              <select className="form-control custom-select-lg" id="grade">
-                <option value="">Grade</option>
-                <option value="6"> 6th </option>
-                <option value="7"> 7th </option>
-                <option value="8"> 8th </option>
-              </select>
-            </div>
-            {/*!! !!LOAD TEACHER LIST */}
+            <DropDown
+              field="Grade"
+              options={[
+                { search: 6, print: "6th" },
+                { search: 7, print: "7th" },
+                { search: 8, print: "8th" },
+              ]}
+              id="gradeSearch"
+              name="grade"
+              onChange={handleInputChange}
+            />
+
             <DropDown
               field="Teacher"
               options={teacherList}
               id="teacherSearch"
+              onChange={handleInputChange}
             />
-            {/* <div className="form-group">
-                <label for=""> Teacher Name</label>
-                <select className="custom-select" id="teacher-student">
-                  <option value="">Teacher</option>
-                </select>
-              </div> */}
-            <div className="form-group">
-              <label for=""> Detention</label>
-              <select className="custom-select" id="detention">
-                <option value="">Detention</option>
-                <option value="false">No</option>
-                <option value="true">Yes</option>
-              </select>
-            </div>
+            <DropDown
+              onChange={handleInputChange}
+              field="Detention"
+              options={[
+                { search: 1, print: "Has Detention" },
+                { search: 0, print: "Does not have Detention" },
+              ]}
+              id="detentionSearch"
+            />
           </form>
         </Modal.Body>
         <Modal.Footer>
@@ -67,7 +78,7 @@ function StudentModal({ show, onClick, teacherList }) {
             Close
           </Button>
           <MyButton
-            onClick={() => {}}
+            onClick={handleFormSubmit}
             id="submitNewStudent"
             type="submit"
             title="Add Student"
