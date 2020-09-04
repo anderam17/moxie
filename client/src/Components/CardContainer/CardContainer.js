@@ -8,12 +8,6 @@ function CardContainer({
   onClickDelete,
   makeTeacherList
 }) {
-const [modalStatus, setModalStatus] = useState({
-  open: false
-});
-
-const openModal = () => setModalStatus({open: true});
-const closeModal = () => setModalStatus({open: false});
 
   return (
     <>
@@ -26,9 +20,6 @@ const closeModal = () => setModalStatus({open: false});
               student={student}
               onClickDelete={onClickDelete}
               makeTeacherList={makeTeacherList}
-              openModal={() => openModal()}
-              closeModal={() => closeModal()}
-              modalStatus={modalStatus}
             />
           );
         })}

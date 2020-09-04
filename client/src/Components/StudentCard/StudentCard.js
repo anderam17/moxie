@@ -6,10 +6,14 @@ function StudentCard({
   student,
   onClickDelete,
   makeTeacherList,
-  openModal,
-  closeModal,
-  modalStatus,
 }) {
+  const [modalStatus, setModalStatus] = useState({
+    open: false
+  });
+  
+  const openModal = () => setModalStatus({open: true});
+  const closeModal = () => setModalStatus({open: false});
+
   const [detention, setDetention] = useState({
     status: student.detention_status,
   });
