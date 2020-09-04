@@ -9,15 +9,19 @@ import ChartContainer from "../ChartContainer/ChartContainer";
 function GradePage() {
   const [teachers, setTeachers] = useState([]);
   const [students, setStudents] = useState([]);
-//   const [searchTerms, setSearchTerms] = useState({
-//     value: "",
-//     category: ""
-//   });
+  const [searchTerms, setSearchTerms] = useState({
+    value: "",
+    category: ""
+  });
+const [singleStudent, setSingleStudent] = useState({
+  first_name: "",
+  last_name: "",
+});
+const { first_name, last_name } = singleStudent;
 
   const handleChange = (name, value) => {
     setSingleStudent({ ...singleStudent, [name]: value });
   };
-
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -43,14 +47,15 @@ function GradePage() {
       };
     });
   };
-  
-  const [singleStudent, setSingleStudent] = useState({
-    first_name: "",
-    last_name: "",
-  });
 
-  const { first_name, last_name } = singleStudent;
-  
+  const fetchStudents = (category, value) => {
+    setSearchTerms({value: value, category: category});
+    console.log(`Category: ${category} Value: ${value}`);
+    API.getStudentsFiltered(category, value).then((response) => {
+      console.log(response.data)
+      setStudents(response.data || []);
+    });
+  };
 
   return (
     <>
@@ -63,8 +68,9 @@ function GradePage() {
             makeTeacherList={makeTeacherList}
             onChange={handleChange}
             onSubmit={handleSubmit}
+            fetchStudents={fetchStudents}
           />
-          <ChartContainer />
+          <ChartContainer/>
         </div>
       </div>
     </>
