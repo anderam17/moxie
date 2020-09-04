@@ -13,11 +13,19 @@ function HomePage() {
     category: ""
   });
 
+  //i need this to run whenever there is a new teacher
   useEffect(() => {
     API.getTeachers().then((response) => {
       setTeachers(response.data);
     });
   }, []);
+
+  //!!!!
+  const fetchTeachers = () => {
+    API.getTeachers().then((response) => {
+      setTeachers(response.data);
+    });
+  };
 
   const makeTeacherList = () => {
     return teachers.map((teacher) => {
@@ -33,6 +41,7 @@ function HomePage() {
     last_name: "",
   });
   
+
   const { first_name, last_name } = singleStudent;
 
   const handleChange = (name, value) => {
@@ -49,7 +58,7 @@ function HomePage() {
     );
   };
 
-  //!! MIGHT NEED THIS FOR OTHER THING
+
   const fetchStudents = (category, value) => {
     setSearchTerms({value: value, category: category});
     console.log(`Category: ${category} Value: ${value}`);
@@ -74,6 +83,7 @@ function HomePage() {
       <div className="self-container">
         <div className="row">
           <SideBar
+          fetchTeachers={fetchTeachers}
             fetchStudents={fetchStudents}
             onChange={handleChange}
             onSubmit={handleSubmit}

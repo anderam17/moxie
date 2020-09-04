@@ -13,6 +13,7 @@ function GradePage() {
     value: "",
     category: ""
   });
+  
 const [singleStudent, setSingleStudent] = useState({
   first_name: "",
   last_name: "",

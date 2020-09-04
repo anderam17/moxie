@@ -8,7 +8,7 @@ import StudentModal from "../StudentModal/StudentModal";
 
 function SideBar({
   fetchStudents,
-  //!
+  fetchTeachers,
   onChange,
   onSubmit,
   makeTeacherList
@@ -35,12 +35,10 @@ function SideBar({
   const openModal = (modalName) => setModalStatus({ ...modalStatus, [modalName]: true });
   const closeModal = () => setModalStatus({ teacher: false, student: false });
 
-  //? */ NEEDED IN OTHER ONE
   const filterStudents = (category) => (event) => {
     fetchStudents(category, event.target.value);
   };
 
-  //? */ NEEDED IN OTHER ONE
   const getName = (name) => (event) => {
     onChange(name, event.target.value);
   };
@@ -65,6 +63,7 @@ function SideBar({
         subject: "",
         students: [],
       });
+      fetchTeachers();
     });
   };
 
