@@ -4,7 +4,9 @@ import StudentCard from "../StudentCard/StudentCard";
 function CardContainer({
   stuCards,
   onClickDelete,
-  makeTeacherList
+  makeTeacherList,
+  searchTerms,
+  fetchStudents
 }) {
 
   return (
@@ -18,6 +20,8 @@ function CardContainer({
               student={student}
               onClickDelete={onClickDelete}
               makeTeacherList={makeTeacherList}
+              searchTerms={searchTerms}
+              fetchStudents={fetchStudents}
             />
           );
         })}

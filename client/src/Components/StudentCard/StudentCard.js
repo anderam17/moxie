@@ -6,6 +6,8 @@ function StudentCard({
   student,
   onClickDelete,
   makeTeacherList,
+  searchTerms,
+  fetchStudents
 }) {
   const [modalStatus, setModalStatus] = useState({
     open: false
@@ -26,6 +28,7 @@ function StudentCard({
       detention_status: !detention.status,
     }).then(() => {
       setDetention({ status: !detention.status });
+      fetchStudents(searchTerms.category, searchTerms.value);
     });
   };
 
@@ -40,6 +43,7 @@ function StudentCard({
     e.preventDefault();
     API.updateStudent(stuToUpdate._id, stuToUpdate).then((response) => {
       console.log("student Updated");
+      fetchStudents(searchTerms.category, searchTerms.value)
       closeModal();
     })
   }

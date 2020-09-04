@@ -8,6 +8,10 @@ import API from "../../utils/api";
 function HomePage() {
   const [students, setStudents] = useState([]);
   const [teachers, setTeachers] = useState([]);
+  const [searchTerms, setSearchTerms] = useState({
+    value: "",
+    category: ""
+  });
 
   useEffect(() => {
     API.getTeachers().then((response) => {
@@ -46,6 +50,7 @@ function HomePage() {
   };
 
   const fetchStudents = (category, value) => {
+    setSearchTerms({value: value, category: category});
     console.log(`Category: ${category} Value: ${value}`);
     API.getStudentsFiltered(category, value).then((response) => {
       console.log(response.data)
@@ -53,12 +58,12 @@ function HomePage() {
     });
   };
 
-  //TODO Double Check this when everything else works
   const deleteStudent = (e) => {
     e.preventDefault();
     API.deleteStudent(e.target.getAttribute("data-id")).then((response) => {
       console.log("It is finished");
     });
+    fetchStudents(searchTerms.category, searchTerms.value);
   };
 
   return (
@@ -77,6 +82,8 @@ function HomePage() {
             stuCards={students}
             onClickDelete={deleteStudent}
             makeTeacherList={makeTeacherList}
+            searchTerms={searchTerms}
+            fetchStudents={fetchStudents}
           />
         </div>
       </div>
