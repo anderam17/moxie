@@ -110,7 +110,6 @@ function SideBar({
         <DropDown
           onChange={filterStudents("teacherId")}
           field="Teacher"
-          //*** */
           options={makeTeacherList()}
           id="teacherId"
         />

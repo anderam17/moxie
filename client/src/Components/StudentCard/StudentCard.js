@@ -47,7 +47,7 @@ function StudentCard({
             Detention:{" "}
             <span className="hasDetention">
               {" "}
-              {detention.status ? "Yes" : "No"}
+              {student.detention_status ? "Yes" : "No"}
             </span>{" "}
           </p>
         </div>

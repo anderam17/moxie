@@ -1,5 +1,5 @@
 const db = require("../models/index");
-const { Student } = require("../models/index");
+// const { Student } = require("../models/index");
 
 module.exports = {
   findAll: (req, res) => {
