@@ -8,9 +8,9 @@ import StudentModal from "../StudentModal/StudentModal";
 
 function SideBar({
   fetchStudents,
+  //!
   onChange,
   onSubmit,
-  //!! NEEDED IN OTHER ONE
   makeTeacherList
 }) {
   const [newTeacher, setNewTeacher] = useState({

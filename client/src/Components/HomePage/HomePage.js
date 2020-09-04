@@ -7,21 +7,18 @@ import API from "../../utils/api";
 
 function HomePage() {
   const [students, setStudents] = useState([]);
-  //!!
   const [teachers, setTeachers] = useState([]);
   const [searchTerms, setSearchTerms] = useState({
     value: "",
     category: ""
   });
 
-  //!!
   useEffect(() => {
     API.getTeachers().then((response) => {
       setTeachers(response.data);
     });
   }, []);
 
-  //!!
   const makeTeacherList = () => {
     return teachers.map((teacher) => {
       return {
@@ -42,7 +39,6 @@ function HomePage() {
     setSingleStudent({ ...singleStudent, [name]: value });
   };
 
-  //!!MIGHT NEED THIS
   const handleSubmit = (event) => {
     event.preventDefault();
     API.getStudentsByName(first_name.trim(), last_name.trim()).then(
