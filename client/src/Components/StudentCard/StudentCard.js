@@ -1,35 +1,97 @@
-import React from "react"
+import React, { useState } from "react";
+import API from "../../utils/api";
+// import StudentModal from "../StudentModal/StudentModal";
 
-function studentCard(props){
-return (
-<>
-<div data-id={props.id} className="card mt-3 col-md-4">
+function StudentCard({
+  student,
+  onClickDelete,
+}) {
+  const [detention, setDetention] = useState({
+    status: student.detention_status,
+  });
+
+  const toggleDetention = (event) => {
+    event.preventDefault();
+
+    setDetention({ status: !detention.status });
+    API.updateStudent(student.id, {
+      ...student,
+      detention_status: detention.status,
+    }).then((response) => {
+      console.log("updated detention");
+      console.log(detention.status);
+    });
+  };
+
+  return (
+    <>
+      <div data-id={student.id} className="card mt-3 col-md-4">
         <div className="card-header text-center">
-        <h5 className="student-name">{props.first_name} {props.last_name}</h5>
+          <h5 className="student-name">
+            {student.first_name} {student.last_name}
+          </h5>
         </div>
-        {/* //! how to put things in class name */}
-        <div className="card-body ${props.grade}" id="cardBody">
-      <p className="card-text studentGrade">Grade: <span className="stuGrade">{props.grade} </span> </p>
-      {/* //! NEed to figure out teacher name */}
-      <p className="card-text teacher">Homeroom Teacher: <br/> <span className="hrTeacher"> Teacher First + Teacher Last </span> </p>
-      {/* //! {props.detention? "Yes" : "No"} --> This was in the og thing, maybe put it in the call instead */}
-      <p className="card-text studentDetention">Detention: <span className="hasDetention"> {props.detention}</span> </p> 
+        <div className="card-body" id="cardBody">
+          <p className="card-text studentGrade">
+            Grade:
+            <span className="stuGrade">{student.grade} </span>{" "}
+          </p>
+          <p className="card-text teacher">
+            Homeroom Teacher: <br />{" "}
+            <span className="hrTeacher">
+              {" "}
+              {student.teacherId.first_name} {student.teacherId.last_name}
+            </span>{" "}
+          </p>
+          <p className="card-text studentDetention">
+            Detention:{" "}
+            <span className="hasDetention">
+              {" "}
+              {detention.status ? "Yes" : "No"}
+            </span>{" "}
+          </p>
+        </div>
+
+        <div className="card-footer mx-auto">
+          <div className="btn-group" role="group">
+            <button
+              type="button"
+              className="btn darkblue"
+              data-id={student.id}
+              data-toggle="modal"
+              // onClick={onClickEdit}
+              data-target="#updateModal"
+              id="edit"
+            >
+              Edit
+            </button>
+
+            <button
+              type="button"
+              className="btn yellow"
+              data-id={student.id}
+              data-detention={student.detention_status}
+              id="detentionBtn"
+              onClick={toggleDetention}
+            >
+              Detention
+            </button>
+
+            <button
+              type="button"
+              className="btn red"
+              id="deleteBtn"
+              data-id={student.id}
+              onClick={onClickDelete}
+            >
+              Delete
+            </button>
+          </div>
+        </div>
       </div>
 
-      <div className="card-footer mx-auto">
-      <div className="btn-group" role="group">
+    </>
+  );
+}
 
-      <button type="button"className="btn darkblue" data-id={props.id} data-toggle="modal" data-target="#updateModal" id="edit">Edit</button>
-
-      <button type="button" className="btn yellow" data-id={props.id} data-detention={props.detention} id="detentionBtn">Detention</button>
-
-      <button type="button" className="btn red" id = "deleteBtn" data-id={props.id}>Delete</button>
-      </div>
-
-      </div>
-      </div>
-      </>
-)
-    }
-
-    export default studentCard;
+export default StudentCard;

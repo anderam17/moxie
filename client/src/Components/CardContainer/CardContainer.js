@@ -1,7 +1,13 @@
-import React from "react";
-import StudentCard from "../StudentCard/StudentCard"
+import React, { useState } from "react";
+import StudentCard from "../StudentCard/StudentCard";
+// import StudentModal from "../StudentModal/StudentModal";
+// import API from "../../utils/api";
 
-function CardContainer({stuCards}) {
+function CardContainer({
+  stuCards,
+  onClickDelete
+}) {
+
   return (
     <>
       <div className="col-md-9 lead" id="studentCard">
@@ -9,15 +15,10 @@ function CardContainer({stuCards}) {
         {stuCards.map((student) => {
           return (
             <StudentCard
-            key={student._id}
-            id={student._id}
-            first_name={student.first_name}
-              last_name={student.last_name}
-              grade={student.grade}
-              detention={student.detention_status ? "Yes" : "No"}
-              onClick={() => {}}
+              student={student}
+              onClickDelete={onClickDelete}
             />
-          )
+          );
         })}
       </div>
     </>

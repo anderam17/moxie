@@ -10,7 +10,6 @@ module.exports = {
         res.json(err);
       });
   },
-  //! How to include Student line include: [Teacher]
   findOne: (req, res) => {
     db.Teacher.findOne({ _id: req.params.id })
     .populate("students")

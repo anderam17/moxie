@@ -8,7 +8,8 @@ function NavBar() {
     <>
       <nav className="navbar sticky-top navbar-light bg-light">
         <a className="navbar-brand" href="#">
-          Pantheos
+        <img src="../../../assets/Moxie.png" alt="" />
+          MOXIE
         </a>
         <Button 
         onclick={() => loginWithRedirect()}

@@ -6,7 +6,16 @@ import api from "../../utils/api";
 import TeacherModal from "../TeacherModal/TeacherModal";
 import StudentModal from "../StudentModal/StudentModal";
 
-function SideBar({ fetchStudents, onChange, onSubmit }) {
+function SideBar({
+  fetchStudents,
+  onChange,
+  onSubmit,
+  // handleFormSubmit,
+  // handleInputChange,
+  // newTeacher,
+  // makeTeacherList,
+}) {
+  //*** */
   const [teachers, setTeachers] = useState([]);
   const [newTeacher, setNewTeacher] = useState({
     first_name: "",
@@ -19,6 +28,7 @@ function SideBar({ fetchStudents, onChange, onSubmit }) {
     last_name: "",
     grade: 0,
     detention_status: false,
+    teacherId: "",
   });
 
   const [modalStatus, setModalStatus] = useState({
@@ -38,13 +48,15 @@ function SideBar({ fetchStudents, onChange, onSubmit }) {
     onChange(name, event.target.value);
   };
 
+  //! Is this constantly rerendering causing my computer to overhear?
+  //*** */
   useEffect(() => {
     api.getTeachers().then((response) => {
-      console.log(`API call: ${response.data}`);
       setTeachers(response.data);
     });
   }, [teachers]);
 
+  //*** */
   const makeTeacherList = () => {
     return teachers.map((teacher) => {
       return {
@@ -53,7 +65,7 @@ function SideBar({ fetchStudents, onChange, onSubmit }) {
       };
     });
   };
-
+  //*** */
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setNewTeacher({ ...newTeacher, [name]: value });
@@ -61,9 +73,10 @@ function SideBar({ fetchStudents, onChange, onSubmit }) {
 
   const handleStudentInputChange = (e) => {
     const { name, value } = e.target;
-    setNewStudent({ ...newTeacher, [name]: value });
+    setNewStudent({ ...newStudent, [name]: value });
   };
 
+  //*** */
   const handleFormSubmit = (e) => {
     e.preventDefault();
     api.addTeacher(newTeacher).then((response) => {
@@ -79,12 +92,12 @@ function SideBar({ fetchStudents, onChange, onSubmit }) {
   const handleStudentFormSubmit = (e) => {
     e.preventDefault();
     api.addStudent(newStudent).then((response) => {
-      setNewTeacher({
+      setNewStudent({
         first_name: "",
         last_name: "",
         grade: 0,
         detention_status: false,
-        teacherId: ""
+        teacherId: "",
       });
     });
   };
@@ -97,8 +110,9 @@ function SideBar({ fetchStudents, onChange, onSubmit }) {
         <DropDown
           onChange={filterStudents("teacherId")}
           field="Teacher"
+          //*** */
           options={makeTeacherList()}
-          id="teacherSearch"
+          id="teacherId"
         />
 
         <DropDown
@@ -108,7 +122,7 @@ function SideBar({ fetchStudents, onChange, onSubmit }) {
             { search: 7, print: "7th" },
             { search: 8, print: "8th" },
           ]}
-          id="gradeSearch"
+          id="grade"
           onChange={filterStudents("grade")}
         />
         <DropDown
@@ -118,7 +132,7 @@ function SideBar({ fetchStudents, onChange, onSubmit }) {
             { search: 1, print: "Has Detention" },
             { search: 0, print: "Does not have Detention" },
           ]}
-          id="detentionSearch"
+          id="detention_status"
         />
         <SearchForm onChange={getName} onClick={onSubmit} />
 
@@ -140,6 +154,7 @@ function SideBar({ fetchStudents, onChange, onSubmit }) {
         <TeacherModal
           show={modalStatus.teacher}
           onClick={() => closeModal()}
+          //*** */
           handleFormSubmit={handleFormSubmit}
           handleInputChange={handleInputChange}
           newTeacher={newTeacher}
@@ -148,10 +163,12 @@ function SideBar({ fetchStudents, onChange, onSubmit }) {
         <StudentModal
           show={modalStatus.student}
           onClick={() => closeModal()}
+          //*** */
           teacherList={makeTeacherList()}
           handleFormSubmit={handleStudentFormSubmit}
           handleInputChange={handleStudentInputChange}
-          newStudent={newStudent}
+          student={newStudent}
+          title="Add Student"
         />
       </div>
     </>

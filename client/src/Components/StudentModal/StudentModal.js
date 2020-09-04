@@ -9,13 +9,14 @@ function StudentModal({
   teacherList,
   handleFormSubmit,
   handleInputChange,
-  newStudent: { first_name, last_name, grade, detention_status, teacherId },
+  title,
+  student: { first_name, last_name, grade, detention_status, teacherId },
 }) {
   return (
     <>
       <Modal show={show}>
         <Modal.Header onClick={onClick} closeButton>
-          <Modal.Title>Add Student</Modal.Title>
+          <Modal.Title>{title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <form action="" method="POST">
@@ -51,7 +52,7 @@ function StudentModal({
                 { search: 7, print: "7th" },
                 { search: 8, print: "8th" },
               ]}
-              id="gradeSearch"
+              value={grade}
               name="grade"
               onChange={handleInputChange}
             />
@@ -59,8 +60,9 @@ function StudentModal({
             <DropDown
               field="Teacher"
               options={teacherList}
-              id="teacherSearch"
+              value={teacherId}
               onChange={handleInputChange}
+              name="teacherId"
             />
             <DropDown
               onChange={handleInputChange}
@@ -69,7 +71,8 @@ function StudentModal({
                 { search: 1, print: "Has Detention" },
                 { search: 0, print: "Does not have Detention" },
               ]}
-              id="detentionSearch"
+              value={detention_status}
+              name="detention_status"
             />
           </form>
         </Modal.Body>

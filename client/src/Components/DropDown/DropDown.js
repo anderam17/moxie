@@ -1,14 +1,14 @@
 import React from "react";
 
-function DropDown({ field, options, id, onChange}) {
+function DropDown({ field, options, value, onChange, name}) {
   return (
     <>
       <div className="nav-item mb-1 p-2">
-        <select className="form-control custom-select-lg" data-id={id} onChange={onChange}>
-          <option value="">{field}</option>
+        <select onChange={onChange} value={value} name={name} className="form-control custom-select-lg">
+          <option>{field}</option>
           {options.map((item) => {
             return (
-              <option className="dropdown-item" value={item.search}>
+              <option className="dropdown-item" value={item.search} key={value}>
                 {" "}
                 {item.print}{" "}
               </option>
@@ -22,6 +22,4 @@ function DropDown({ field, options, id, onChange}) {
 
 export default DropDown;
 
-
-// {{item} === "Has Detention" ? true : {item} === "Does not have Detention" ? false : {item}}
 
