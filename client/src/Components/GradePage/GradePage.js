@@ -1,7 +1,8 @@
 import React from "react";
 import Header from "../Header/Header";
 import NavBar from "../NavBar/NavBar";
-// import SideBar from "../SideBar/SideBar";
+import SideBar from "../SideBar/SideBar";
+import GradeSideBar from "../GradeSideBar/GradeSideBar";
 
 
 function GradePage() {
@@ -11,17 +12,12 @@ function GradePage() {
       <NavBar />
       <Header />
 
-      {/* <div className="self-container">
+      <div className="self-container">
         <div className="row">
-          <SideBar
-            fetchStudents={fetchStudents}
-            onChange={handleChange}
-            onSubmit={handleSubmit}
-            makeTeacherList={makeTeacherList}
-          />
+          <GradeSideBar />
 
         </div>
-      </div> */}
+      </div>
     </>
   );
 }

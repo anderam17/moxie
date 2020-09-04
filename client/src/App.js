@@ -8,8 +8,8 @@ import HomePage from "./Components/HomePage/HomePage";
 import GradePage from "./Components/GradePage/GradePage"
 
 function App() {
-  // const { isAuthenticated } = useAuth0();
-  //   if (isAuthenticated) {
+  const { isAuthenticated } = useAuth0();
+    if (isAuthenticated) {
     //! I have this commented out so that I dont have to sign in every tiem
       return (
       <BrowserRouter>
@@ -18,13 +18,12 @@ function App() {
           <Route path="/" component={HomePage} />
         </Switch>
       </BrowserRouter>
-      // <HomePage />
       )
-    // } else{
-    //   return (
-    //     <LogInPage />
-    //     )
-    // };
+    } else{
+      return (
+        <LogInPage />
+        )
+    };
 }
 
 export default App;

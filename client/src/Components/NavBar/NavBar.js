@@ -5,7 +5,7 @@ import{ useHistory } from "react-router-dom";
 import "./NavBar.css"
 
 function NavBar() {
-  const { loginWithRedirect } = useAuth0();
+  const { loginWithRedirect, logout } = useAuth0();
   const history = useHistory();
 
   const toGradePage = () => {
@@ -14,7 +14,8 @@ function NavBar() {
 
   const toHomePage = () => {
     history.push("/")
-  }
+  };
+  const { isAuthenticated } = useAuth0();
   return (
     <>
       <nav className="navbar sticky-top navbar-light bg-light">
@@ -33,10 +34,11 @@ function NavBar() {
         id="grades"
         title="Grades"
         />
+      
         <Button 
-        onClick={() => loginWithRedirect()}
+        onClick={isAuthenticated ? () => logout() : () => loginWithRedirect()}
         id="signIn"
-        title="Sign In"
+        title={isAuthenticated ? "Sign Out" : "Sign In"}
         />
         </div>
       </nav>
