@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import DropDown from "../DropDown/DropDown";
 import SearchForm from "../SearchForm/SearchForm";
 import Button from "../Button/Button";
-import api from "../../utils/api";
+import API from "../../utils/api";
 import TeacherModal from "../TeacherModal/TeacherModal";
 import StudentModal from "../StudentModal/StudentModal";
 
@@ -10,13 +10,8 @@ function SideBar({
   fetchStudents,
   onChange,
   onSubmit,
-  // handleFormSubmit,
-  // handleInputChange,
-  // newTeacher,
-  // makeTeacherList,
+  makeTeacherList
 }) {
-  //*** */
-  const [teachers, setTeachers] = useState([]);
   const [newTeacher, setNewTeacher] = useState({
     first_name: "",
     last_name: "",
@@ -36,8 +31,7 @@ function SideBar({
     student: false,
   });
 
-  const openModal = (modalName) =>
-    setModalStatus({ ...modalStatus, [modalName]: true });
+  const openModal = (modalName) => setModalStatus({ ...modalStatus, [modalName]: true });
   const closeModal = () => setModalStatus({ teacher: false, student: false });
 
   const filterStudents = (category) => (event) => {
@@ -47,23 +41,6 @@ function SideBar({
   const getName = (name) => (event) => {
     onChange(name, event.target.value);
   };
-
-  useEffect(() => {
-    api.getTeachers().then((response) => {
-      setTeachers(response.data);
-    });
-  }, []);
-
-  //*** */
-  const makeTeacherList = () => {
-    return teachers.map((teacher) => {
-      return {
-        search: teacher._id,
-        print: `${teacher.first_name} ${teacher.last_name}`,
-      };
-    });
-  };
-  //*** */
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setNewTeacher({ ...newTeacher, [name]: value });
@@ -74,10 +51,9 @@ function SideBar({
     setNewStudent({ ...newStudent, [name]: value });
   };
 
-  //*** */
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    api.addTeacher(newTeacher).then((response) => {
+    API.addTeacher(newTeacher).then((response) => {
       setNewTeacher({
         first_name: "",
         last_name: "",
@@ -89,7 +65,7 @@ function SideBar({
 
   const handleStudentFormSubmit = (e) => {
     e.preventDefault();
-    api.addStudent(newStudent).then((response) => {
+    API.addStudent(newStudent).then((response) => {
       setNewStudent({
         first_name: "",
         last_name: "",
@@ -151,7 +127,6 @@ function SideBar({
         <TeacherModal
           show={modalStatus.teacher}
           onClick={() => closeModal()}
-          //*** */
           handleFormSubmit={handleFormSubmit}
           handleInputChange={handleInputChange}
           newTeacher={newTeacher}
@@ -160,7 +135,6 @@ function SideBar({
         <StudentModal
           show={modalStatus.student}
           onClick={() => closeModal()}
-          //*** */
           teacherList={makeTeacherList()}
           handleFormSubmit={handleStudentFormSubmit}
           handleInputChange={handleStudentInputChange}

@@ -6,38 +6,50 @@ import CardContainer from "../CardContainer/CardContainer";
 import API from "../../utils/api";
 
 function HomePage() {
-  //? GOOD
   const [students, setStudents] = useState([]);
-  //? GOOD
+  const [teachers, setTeachers] = useState([]);
+
+  useEffect(() => {
+    API.getTeachers().then((response) => {
+      setTeachers(response.data);
+    });
+  }, []);
+
+  const makeTeacherList = () => {
+    return teachers.map((teacher) => {
+      return {
+        search: teacher._id,
+        print: `${teacher.first_name} ${teacher.last_name}`,
+      };
+    });
+  };
+
   const [singleStudent, setSingleStudent] = useState({
     first_name: "",
     last_name: "",
   });
   
-  //? GOOD
   const { first_name, last_name } = singleStudent;
 
-  //? GOOD
   const handleChange = (name, value) => {
     setSingleStudent({ ...singleStudent, [name]: value });
   };
 
-  //? GOOD
   const handleSubmit = (event) => {
     event.preventDefault();
     API.getStudentsByName(first_name.trim(), last_name.trim()).then(
       (response) => {
         console.log(response.data);
-        setStudents(response.data);
+        setStudents(response.data || []);
       }
     );
   };
 
-  //? GOOD
   const fetchStudents = (category, value) => {
     console.log(`Category: ${category} Value: ${value}`);
     API.getStudentsFiltered(category, value).then((response) => {
-      setStudents(response.data);
+      console.log(response.data)
+      setStudents(response.data || []);
     });
   };
 
@@ -59,10 +71,12 @@ function HomePage() {
             fetchStudents={fetchStudents}
             onChange={handleChange}
             onSubmit={handleSubmit}
+            makeTeacherList={makeTeacherList}
           />
           <CardContainer
             stuCards={students}
             onClickDelete={deleteStudent}
+            makeTeacherList={makeTeacherList}
           />
         </div>
       </div>

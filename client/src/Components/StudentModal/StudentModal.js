@@ -25,7 +25,6 @@ function StudentModal({
               <input
                 type="text"
                 className="form-control"
-                id="student_first_name"
                 placeholder="First Name"
                 value={first_name}
                 name="first_name"
@@ -38,7 +37,6 @@ function StudentModal({
               <input
                 type="text"
                 className="form-control"
-                id="student_last_name"
                 placeholder="Last Name"
                 value={last_name}
                 name="last_name"

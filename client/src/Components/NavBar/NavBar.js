@@ -7,13 +7,13 @@ function NavBar() {
   return (
     <>
       <nav className="navbar sticky-top navbar-light bg-light">
-        <a className="navbar-brand" href="#">
+        <div className="navbar-brand" href="#">
         <img src="../../../assets/Moxie.png" alt="" />
           MOXIE
-        </a>
+        </div>
         <Button 
         onclick={() => loginWithRedirect()}
-        id="singIn"
+        id="signIn"
         title="Sign In"
         />
       </nav>

@@ -5,8 +5,15 @@ import StudentCard from "../StudentCard/StudentCard";
 
 function CardContainer({
   stuCards,
-  onClickDelete
+  onClickDelete,
+  makeTeacherList
 }) {
+const [modalStatus, setModalStatus] = useState({
+  open: false
+});
+
+const openModal = () => setModalStatus({open: true});
+const closeModal = () => setModalStatus({open: false});
 
   return (
     <>
@@ -15,8 +22,13 @@ function CardContainer({
         {stuCards.map((student) => {
           return (
             <StudentCard
+              key={student._id}
               student={student}
               onClickDelete={onClickDelete}
+              makeTeacherList={makeTeacherList}
+              openModal={() => openModal()}
+              closeModal={() => closeModal()}
+              modalStatus={modalStatus}
             />
           );
         })}

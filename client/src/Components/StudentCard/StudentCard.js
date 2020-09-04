@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import API from "../../utils/api";
-// import StudentModal from "../StudentModal/StudentModal";
+import StudentModal from "../StudentModal/StudentModal";
 
 function StudentCard({
   student,
   onClickDelete,
+  makeTeacherList,
+  openModal,
+  closeModal,
+  modalStatus,
 }) {
   const [detention, setDetention] = useState({
     status: student.detention_status,
@@ -20,6 +24,20 @@ function StudentCard({
       setDetention({ status: !detention.status });
     });
   };
+
+  const [stuToUpdate, setStuToUpdate] = useState(student);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setStuToUpdate({...stuToUpdate, [name]: value})
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    API.updateStudent(stuToUpdate._id, stuToUpdate).then((response) => {
+      console.log("student Updated");
+    })
+  }
 
   return (
     <>
@@ -57,7 +75,7 @@ function StudentCard({
               className="btn darkblue"
               data-id={student.id}
               data-toggle="modal"
-              // onClick={onClickEdit}
+              onClick={openModal}
               data-target="#updateModal"
               id="edit"
             >
@@ -87,6 +105,16 @@ function StudentCard({
           </div>
         </div>
       </div>
+
+      <StudentModal
+          show={modalStatus.open}
+          onClick={() => closeModal()}
+          teacherList={makeTeacherList()}
+          handleFormSubmit={handleFormSubmit}
+          handleInputChange={handleInputChange}
+          student={stuToUpdate}
+          title="Update Student"
+        />
 
     </>
   );
