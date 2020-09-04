@@ -10,6 +10,7 @@ function SideBar({
   fetchStudents,
   onChange,
   onSubmit,
+  //!! NEEDED IN OTHER ONE
   makeTeacherList
 }) {
   const [newTeacher, setNewTeacher] = useState({
@@ -34,13 +35,16 @@ function SideBar({
   const openModal = (modalName) => setModalStatus({ ...modalStatus, [modalName]: true });
   const closeModal = () => setModalStatus({ teacher: false, student: false });
 
+  //? */ NEEDED IN OTHER ONE
   const filterStudents = (category) => (event) => {
     fetchStudents(category, event.target.value);
   };
 
+  //? */ NEEDED IN OTHER ONE
   const getName = (name) => (event) => {
     onChange(name, event.target.value);
   };
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setNewTeacher({ ...newTeacher, [name]: value });
