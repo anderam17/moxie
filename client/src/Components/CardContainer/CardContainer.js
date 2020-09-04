@@ -1,7 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import StudentCard from "../StudentCard/StudentCard";
-// import StudentModal from "../StudentModal/StudentModal";
-// import API from "../../utils/api";
 
 function CardContainer({
   stuCards,
@@ -13,7 +11,7 @@ function CardContainer({
     <>
       <div className="col-md-9 lead" id="studentCard">
         <h3>Select Criteria to Begin Your Search.</h3>
-        {stuCards.map((student) => {
+        {stuCards[0] && stuCards.map((student) => {
           return (
             <StudentCard
               key={student._id}
