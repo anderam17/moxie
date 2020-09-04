@@ -82,7 +82,7 @@ function StudentModal({
             onClick={handleFormSubmit}
             id="submitNewStudent"
             type="submit"
-            title="Add Student"
+            title="Submit"
             dataTarget="#studentModal"
           />
         </Modal.Footer>

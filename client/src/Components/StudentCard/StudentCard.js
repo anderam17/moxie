@@ -36,6 +36,7 @@ function StudentCard({
     e.preventDefault();
     API.updateStudent(stuToUpdate._id, stuToUpdate).then((response) => {
       console.log("student Updated");
+      closeModal();
     })
   }
 

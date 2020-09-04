@@ -54,6 +54,7 @@ function SideBar({
   const handleFormSubmit = (e) => {
     e.preventDefault();
     API.addTeacher(newTeacher).then((response) => {
+      closeModal();
       setNewTeacher({
         first_name: "",
         last_name: "",
@@ -66,6 +67,7 @@ function SideBar({
   const handleStudentFormSubmit = (e) => {
     e.preventDefault();
     API.addStudent(newStudent).then((response) => {
+      closeModal();
       setNewStudent({
         first_name: "",
         last_name: "",
