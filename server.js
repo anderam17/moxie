@@ -17,7 +17,17 @@ app.use(routes);
 // require("./routes/api/student-api-routes")(app);
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/schooldb");
+mongoose.connect(
+  process.env.MONGODB_URI || 'mongodb://localhost/schooldb',
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false
+  }
+);
+
+// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/schooldb");
 
 // Start the API server
 app.listen(PORT, function() {
