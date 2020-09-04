@@ -5,10 +5,10 @@ function DropDown({ field, options, value, onChange, name}) {
     <>
       <div className="nav-item mb-1 p-2">
         <select onChange={onChange} value={value} name={name} className="form-control custom-select-lg">
-          <option>{field}</option>
+          <option key={`${field}-default`}>{field}</option>
           {options.map((item) => {
             return (
-              <option className="dropdown-item" value={item.search} key={value}>
+              <option className="dropdown-item" value={item.search} key={item.print}>
                 {" "}
                 {item.print}{" "}
               </option>

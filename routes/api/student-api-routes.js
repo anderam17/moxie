@@ -8,7 +8,6 @@ router.route("/students/:id")
 
 router.route("/students")
 .get(controller.findAll)
-.post(controller.create)
-.delete(controller.deleteOne);
+.post(controller.create);
 
 module.exports = router;

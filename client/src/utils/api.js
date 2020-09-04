@@ -18,7 +18,7 @@ export default {
     return axios.post("/api/students", studentData);
   },
   deleteStudent: (id) => {
-    return axios.delete("/api/students/", { params: { _id: id }});
+    return axios.delete(`/api/students/${id}`);
   },
   updateStudent: (id, studentData) => {
     return axios.put(`/api/students/${id}`, studentData);

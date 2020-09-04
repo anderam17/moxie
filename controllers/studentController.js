@@ -36,7 +36,7 @@ module.exports = {
       });
   },
   deleteOne: (req, res) => {
-    db.Student.deleteOne(req.query)
+    db.Student.deleteOne({ _id: req.params.id })
       .then((students) => {
         res.json(students);
       })

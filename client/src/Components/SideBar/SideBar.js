@@ -48,13 +48,11 @@ function SideBar({
     onChange(name, event.target.value);
   };
 
-  //! Is this constantly rerendering causing my computer to overhear?
-  //*** */
   useEffect(() => {
     api.getTeachers().then((response) => {
       setTeachers(response.data);
     });
-  }, [teachers]);
+  }, []);
 
   //*** */
   const makeTeacherList = () => {

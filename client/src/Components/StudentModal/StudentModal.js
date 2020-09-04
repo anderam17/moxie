@@ -21,7 +21,7 @@ function StudentModal({
         <Modal.Body>
           <form action="" method="POST">
             <div className="form-group">
-              <label for="">First Name</label>
+              <label>First Name</label>
               <input
                 type="text"
                 className="form-control"
@@ -34,7 +34,7 @@ function StudentModal({
             </div>
 
             <div className="form-group">
-              <label for="">Last Name</label>
+              <label>Last Name</label>
               <input
                 type="text"
                 className="form-control"

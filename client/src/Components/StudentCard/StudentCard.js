@@ -12,20 +12,18 @@ function StudentCard({
 
   const toggleDetention = (event) => {
     event.preventDefault();
-
-    setDetention({ status: !detention.status });
-    API.updateStudent(student.id, {
+    
+    API.updateStudent(student._id, {
       ...student,
-      detention_status: detention.status,
-    }).then((response) => {
-      console.log("updated detention");
-      console.log(detention.status);
+      detention_status: !detention.status,
+    }).then(() => {
+      setDetention({ status: !detention.status });
     });
   };
 
   return (
     <>
-      <div data-id={student.id} className="card mt-3 col-md-4">
+      <div data-id={student._id} className="card mt-3 col-md-4">
         <div className="card-header text-center">
           <h5 className="student-name">
             {student.first_name} {student.last_name}
@@ -47,7 +45,7 @@ function StudentCard({
             Detention:{" "}
             <span className="hasDetention">
               {" "}
-              {student.detention_status ? "Yes" : "No"}
+              {detention.status ? "Yes" : "No"}
             </span>{" "}
           </p>
         </div>
@@ -81,7 +79,7 @@ function StudentCard({
               type="button"
               className="btn red"
               id="deleteBtn"
-              data-id={student.id}
+              data-id={student._id}
               onClick={onClickDelete}
             >
               Delete
