@@ -2,10 +2,15 @@ import React from "react";
 import GradeChart from "../GradeChart/GradeChart";
 import "./ChartContainer.css"
 
-//WHEN SEARCH BY STUDENT:
+// * WHEN SEARCH BY STUDENT:
 // - For the student, drill to the grades array in their object
 // - for each item in the array:
   // - I need the subject and the grades
+// ? WHEN SEARCH BY TEACHER: --> MAy save for later
+//  - For the TEACHER, drill to the student array in their object
+//  - for each studentID, find that student and
+  // - for each item in the array:
+    // - I need the subject and the grades
 
 
 function ChartContainer() {

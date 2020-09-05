@@ -20,7 +20,6 @@ function HomePage() {
     });
   }, []);
 
-  //!!!!
   const fetchTeachers = () => {
     API.getTeachers().then((response) => {
       setTeachers(response.data);

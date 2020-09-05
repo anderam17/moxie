@@ -28,7 +28,6 @@ function GradeChart({data, header}) {
           {
             label: "GRADES",
             //! Get Data from somewhere and put it here
-            // data: [56, 75, 58, 91],
             data: data,
             // fill: false,
             borderColor: "#FF0000",

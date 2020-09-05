@@ -11,7 +11,7 @@ function SideBar({
   fetchTeachers,
   onChange,
   onSubmit,
-  makeTeacherList
+  makeTeacherList,
 }) {
   const [newTeacher, setNewTeacher] = useState({
     first_name: "",
@@ -25,6 +25,7 @@ function SideBar({
     grade: 0,
     detention_status: false,
     teacherId: "",
+    grades: [{math: [10,20,30,40]}, {science: [70, 60, 50, 40]} ,{history: [95, 80, 77, 94]}],
   });
 
   const [modalStatus, setModalStatus] = useState({
@@ -77,6 +78,7 @@ function SideBar({
         grade: 0,
         detention_status: false,
         teacherId: "",
+        grades: [{math: [10,20,30,40]}, {science: [70, 60, 50, 40]} ,{history: [95, 80, 77, 94]}],
       });
     });
   };

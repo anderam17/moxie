@@ -22,6 +22,10 @@ const StudentSchema = new Schema({
   teacherId: {
     type: Schema.Types.ObjectId,
     ref: "Teacher"
+  },
+  grades: {
+    type: [{}],
+    required: true,
   }
 });
 

@@ -7,84 +7,84 @@ mongoose.connect(
 );
 
 const studentSeed = [
-  {
-    first_name: "Ruhn",
-    last_name: "Dannan",
-    grade: 6,
-    detention_status: false,
-    grades: [{math: [10,20,30,40]}, {science: [70, 60, 50, 40]} ,{history: [95, 80, 77, 94]}],
-    teacherId: {
-      first_name: "Allana",
-    last_name: "Anderson",
-    subject: "Math",
-    students: [],
-    },
-  },
-  {
-    first_name: "Bryce",
-    last_name: "Quinlan",
-    grade: 6,
-    detention_status: false,
-    grades: [{subject: "math", scores: [10,20,30,40]}, {subject: "science", scores: [70, 60, 50, 40]} ,{subject: "history", scores: [95, 80, 77, 94]}],
-    teacherId: {
-      first_name: "Allana",
-    last_name: "Anderson",
-    subject: "Math",
-    students: [],
-    },
-  },
-  {
-    first_name: "Hunt",
-    last_name: "Athalar",
-    grade: 7,
-    detention_status: false,
-    grades: [{subject: "math", scores: [10,20,30,40]}, {subject: "science", scores: [70, 60, 50, 40]} ,{subject: "history", scores: [95, 80, 77, 94]}],
-    teacherId: {
-      first_name: "Allana",
-    last_name: "Anderson",
-    subject: "Math",
-    students: [],
-    },
-  },
-  {
-    first_name: "Danika",
-    last_name: "Fendyr",
-    grade: 7,
-    detention_status: false,
-    grades: [{subject: "math", scores: [10,20,30,40]}, {subject: "science", scores: [70, 60, 50, 40]} ,{subject: "history", scores: [95, 80, 77, 94]}],
-    teacherId: {
-      first_name: "Allana",
-    last_name: "Anderson",
-    subject: "Math",
-    students: [],
-    },
-  },
-  {
-    first_name: "Fury",
-    last_name: "Axatar",
-    grade: 8,
-    detention_status: false,
-    grades: [{math: [10,20,30,40]}, {science: [70, 60, 50, 40]} ,{history: [95, 80, 77, 94]}],
-    teacherId: {
-      first_name: "Allana",
-    last_name: "Anderson",
-    subject: "Math",
-    students: [],
-    },
-  },
-  {
-    first_name: "Connor",
-    last_name: "Holstrom",
-    grade: 8,
-    detention_status: false,
-    grades: [{math: [10,20,30,40]}, {science: [70, 60, 50, 40]} ,{history: [95, 80, 77, 94]}],
-    teacherId: {
-      first_name: "Allana",
-    last_name: "Anderson",
-    subject: "Math",
-    students: [],
-    },
-  }
+//   {
+//     first_name: "Ruhn",
+//     last_name: "Dannan",
+//     grade: 6,
+//     detention_status: false,
+//     grades: [{math: [10,20,30,40]}, {science: [70, 60, 50, 40]} ,{history: [95, 80, 77, 94]}],
+//     teacherId: {
+//       first_name: "Allana",
+//     last_name: "Anderson",
+//     subject: "Math",
+//     students: [],
+//     },
+//   },
+//   {
+//     first_name: "Bryce",
+//     last_name: "Quinlan",
+//     grade: 6,
+//     detention_status: false,
+//     grades: [{subject: "math", scores: [10,20,30,40]}, {subject: "science", scores: [70, 60, 50, 40]} ,{subject: "history", scores: [95, 80, 77, 94]}],
+//     teacherId: {
+//       first_name: "Allana",
+//     last_name: "Anderson",
+//     subject: "Math",
+//     students: [],
+//     },
+//   },
+//   {
+//     first_name: "Hunt",
+//     last_name: "Athalar",
+//     grade: 7,
+//     detention_status: false,
+//     grades: [{subject: "math", scores: [10,20,30,40]}, {subject: "science", scores: [70, 60, 50, 40]} ,{subject: "history", scores: [95, 80, 77, 94]}],
+//     teacherId: {
+//       first_name: "Allana",
+//     last_name: "Anderson",
+//     subject: "Math",
+//     students: [],
+//     },
+//   },
+//   {
+//     first_name: "Danika",
+//     last_name: "Fendyr",
+//     grade: 7,
+//     detention_status: false,
+//     grades: [{subject: "math", scores: [10,20,30,40]}, {subject: "science", scores: [70, 60, 50, 40]} ,{subject: "history", scores: [95, 80, 77, 94]}],
+//     teacherId: {
+//       first_name: "Allana",
+//     last_name: "Anderson",
+//     subject: "Math",
+//     students: [],
+//     },
+//   },
+//   {
+//     first_name: "Fury",
+//     last_name: "Axatar",
+//     grade: 8,
+//     detention_status: false,
+//     grades: [{math: [10,20,30,40]}, {science: [70, 60, 50, 40]} ,{history: [95, 80, 77, 94]}],
+//     teacherId: {
+//       first_name: "Allana",
+//     last_name: "Anderson",
+//     subject: "Math",
+//     students: [],
+//     },
+//   },
+//   {
+//     first_name: "Connor",
+//     last_name: "Holstrom",
+//     grade: 8,
+//     detention_status: false,
+//     grades: [{math: [10,20,30,40]}, {science: [70, 60, 50, 40]} ,{history: [95, 80, 77, 94]}],
+//     teacherId: {
+//       first_name: "Allana",
+//     last_name: "Anderson",
+//     subject: "Math",
+//     students: [],
+//     },
+//   }
 ];
 
 const teacherSeed = [
