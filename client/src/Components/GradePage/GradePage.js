@@ -11,14 +11,14 @@ function GradePage() {
   const [students, setStudents] = useState([]);
   const [searchTerms, setSearchTerms] = useState({
     value: "",
-    category: ""
+    category: "",
   });
-  
-const [singleStudent, setSingleStudent] = useState({
-  first_name: "",
-  last_name: "",
-});
-const { first_name, last_name } = singleStudent;
+
+  const [singleStudent, setSingleStudent] = useState({
+    first_name: "",
+    last_name: "",
+  });
+  const { first_name, last_name } = singleStudent;
 
   const handleChange = (name, value) => {
     setSingleStudent({ ...singleStudent, [name]: value });
@@ -28,7 +28,7 @@ const { first_name, last_name } = singleStudent;
     event.preventDefault();
     API.getStudentsByName(first_name.trim(), last_name.trim()).then(
       (response) => {
-        console.log(response.data);
+        console.log(`Response.DAta: ${response.data}`);
         setStudents(response.data || []);
       }
     );
@@ -50,10 +50,10 @@ const { first_name, last_name } = singleStudent;
   };
 
   const fetchStudents = (category, value) => {
-    setSearchTerms({value: value, category: category});
+    setSearchTerms({ value: value, category: category });
     console.log(`Category: ${category} Value: ${value}`);
     API.getStudentsFiltered(category, value).then((response) => {
-      console.log(response.data)
+      console.log(response.data);
       setStudents(response.data || []);
     });
   };
@@ -71,8 +71,7 @@ const { first_name, last_name } = singleStudent;
             onSubmit={handleSubmit}
             fetchStudents={fetchStudents}
           />
-          <ChartContainer
-          />
+          <ChartContainer students={students} />
         </div>
       </div>
     </>

@@ -12,13 +12,27 @@ import "./ChartContainer.css"
   // - for each item in the array:
     // - I need the subject and the grades
 
-
-function ChartContainer() {
+function ChartContainer({students}) {
   return (
     <>
       <div className="col-md-9 lead">
         <h3>Select Student to See Grades</h3>
-            <GradeChart data={[56, 75, 58, 91]} header={"MATH"}/>
+            {students[0] && students[0].grades.map((classSubject) =>{
+              return (
+                <GradeChart data={classSubject.scores} header={classSubject.subject} key={classSubject.subject}/>
+              )
+            })
+            }
+            {/* <GradeChart data={[56, 75, 58, 91]} header={"MATH"}/> */}
+
+            {console.log(`In Chart Container: `)} 
+            {console.log(students)}
+            {students[0] ? console.log(students[0].grades): console.log("Nothing yet")}
+            {students[0] ? console.log(students[0].grades[0].subject) : console.log("No subject")}
+            {students[0] ? console.log(students[0].grades[0].scores) : console.log("No scores")}
+
+
+            {/* students[0].grades.find(subject => Object.keys(subject) === ['math']); */}
       </div>
     </>
   );
