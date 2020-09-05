@@ -7,6 +7,7 @@ import LogInPage from "./Components/LogInPage/LogInPage";
 import HomePage from "./Components/HomePage/HomePage";
 import GradePage from "./Components/GradePage/GradePage"
 
+
 function App() {
   // const { isAuthenticated } = useAuth0();
   //   if (isAuthenticated) {

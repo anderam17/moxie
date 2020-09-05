@@ -23,24 +23,3 @@ function DropDown({ field, options, value, onChange, name }) {
 }
 
 export default DropDown;
-
-
-
-
-
-//* Almost works, but buttons do not filter students. I assume because I do not have access to the bootstrap components and can't set their values and names
-{/* <DropdownButton
-  id="dropdown-basic-button"
-  onChange={onChange}
-  value={value}
-  name={name}
-  title={field}
->
-  {options.map((item) => {
-    return (
-      <Dropdown.Item value={item.search} key={item.print}>
-        {item.print}
-      </Dropdown.Item>
-    );
-  })}
-</DropdownButton> */}

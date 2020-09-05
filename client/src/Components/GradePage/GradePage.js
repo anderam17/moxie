@@ -71,7 +71,8 @@ const { first_name, last_name } = singleStudent;
             onSubmit={handleSubmit}
             fetchStudents={fetchStudents}
           />
-          <ChartContainer/>
+          <ChartContainer
+          />
         </div>
       </div>
     </>
