@@ -51,7 +51,7 @@ function SideBar({
 
   const handleStudentInputChange = (e) => {
     const { name, value } = e.target;
-    setNewStudent({ ...newStudent, [name]: value });
+    setNewStudent({ ...newStudent, [name]: value.trim() });
   };
 
   const handleFormSubmit = (e) => {
