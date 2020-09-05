@@ -13,7 +13,7 @@ function ChartContainer() {
     <>
       <div className="col-md-9 lead">
         <h3>Select Student to See Grades</h3>
-            <GradeChart />
+            <GradeChart data={[56, 75, 58, 91]} header={"MATH"}/>
       </div>
     </>
   );
