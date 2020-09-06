@@ -1,15 +1,23 @@
 import React from "react";
 import MyButton from "../Button/Button";
 import { Modal, Button } from "react-bootstrap";
-import DropDown from "../DropDown/DropDown";
 
-function StudentModal({
+//I just need to make sure value is what I need it to be so that it pushes to the state correctly. And I need to make sure the handle form submit and handleInputChange work correctly
+
+//!!! THIS NAME NEEDS TO CHANGE
+function GradeModal({
   show,
   onClick,
   handleFormSubmit,
   handleInputChange,
-  header
+  header,
+  //* THIS MIGHT NEED TO CHANGE
+  newGrade: {score},
+  setNewGrade
 }) {
+//*NEW
+  setNewGrade.subject=header;
+
   return (
     <>
       <Modal
@@ -32,8 +40,9 @@ function StudentModal({
                 className="form-control"
                 placeholder="0-105"
                 //! ONLY THING I MIGHT NEED TO CHANGE
-                // value={first_name}
-                name="grade"
+                value={score}
+                data-subject={header}
+                name="score"
                 onChange={handleInputChange}
               />
             </div>
@@ -59,4 +68,4 @@ function StudentModal({
   );
 }
 
-export default StudentModal;
+export default GradeModal;

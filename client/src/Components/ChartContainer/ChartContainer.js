@@ -9,7 +9,7 @@ import "./ChartContainer.css";
   // - for each item in the array:
     // - I need the subject and the grades
 
-function ChartContainer({students}) {
+function ChartContainer({students, handleFormSubmit, handleInputChange, newGrade, setNewGrade}) {
 
   return (
     <>
@@ -17,7 +17,7 @@ function ChartContainer({students}) {
       {students[0] ? <h3>{students[0].first_name} {students[0].last_name}</h3> : <h3>Select Student to See Grades</h3>}
             {students[0] && students[0].grades.map((classSubject) =>{
               return (
-                <GradeChart data={classSubject.scores} header={classSubject.subject} key={classSubject.subject}/>
+                <GradeChart data={classSubject.scores} header={classSubject.subject} key={classSubject.subject} handleFormSubmit={handleFormSubmit} handleInputChange={handleInputChange} newGrade={newGrade} setNewGrade={setNewGrade}/>
               )
             })
             }
