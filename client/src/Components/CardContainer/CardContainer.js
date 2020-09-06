@@ -12,7 +12,7 @@ function CardContainer({
   return (
     <>
       <div className="col-md-9 lead" id="studentCard">
-        <h3>Select Criteria to Begin Your Search.</h3>
+      {stuCards[0] ? <h3>Students:</h3> : <h3>Select Criteria to Begin Your Search.</h3>}
         {stuCards[0] && stuCards.map((student) => {
           return (
             <StudentCard

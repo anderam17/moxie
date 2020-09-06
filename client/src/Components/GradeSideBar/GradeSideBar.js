@@ -1,6 +1,7 @@
 import React from "react";
-import DropDown from "../DropDown/DropDown"
-import SearchForm from "../SearchForm/SearchForm"
+import DropDown from "../DropDown/DropDown";
+import SearchForm from "../SearchForm/SearchForm";
+
 
 function GradeSideBar({makeTeacherList, onChange, onSubmit, fetchStudents}) {
     const getName = (name) => (event) => {
@@ -22,7 +23,8 @@ function GradeSideBar({makeTeacherList, onChange, onSubmit, fetchStudents}) {
           id="teacherId"
         />
         <SearchForm onChange={getName} onClick={onSubmit} />
-      {/* toggle table & chart? */}
+
+
 
       </div>
 

@@ -1,7 +1,17 @@
 import React, { useEffect, useState } from "react";
 import Chart from "chart.js";
+import Button from "../Button/Button";
+import GradeModal from "../GradeModal/GradeModal";
 
 function GradeChart({data, header}) {
+
+const [modalStatus, setModalStatus] = useState({
+    open: false,
+  });
+
+  const openModal = () => setModalStatus({ open: true });
+  const closeModal = () => setModalStatus({ open: false });
+
   Chart.defaults.global.defaultFontFamily = "'PT Sans', sans-serif";
   Chart.scaleService.updateScaleDefaults("linear", {
       //* I did this to set the Y-axis of the chart
@@ -40,11 +50,25 @@ function GradeChart({data, header}) {
   });
 
   return (
+      <>
     <div>
-        {/* //! Get Data from somewhere and put it here */}
       <h1>{header}</h1>
+      <Button
+          onClick={openModal}
+          id="addNewGrade"
+          type="button"
+          title="Add Grade"
+          dataTarget="#gradeModal"
+        />
       <canvas id="myChart" ref={chartRef} />
     </div>
+    <GradeModal 
+    onClick={() => closeModal()}
+    handleFormSubmit={() => {}}
+    handleInputChange={() => {}}
+    show={modalStatus.open}
+    />
+    </>
   );
 }
 export default GradeChart;
