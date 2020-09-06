@@ -67,6 +67,7 @@ const [modalStatus, setModalStatus] = useState({
     handleFormSubmit={() => {}}
     handleInputChange={() => {}}
     show={modalStatus.open}
+    header={header}
     />
     </>
   );

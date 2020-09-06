@@ -8,6 +8,7 @@ function StudentModal({
   onClick,
   handleFormSubmit,
   handleInputChange,
+  header
 }) {
   return (
     <>
@@ -18,7 +19,7 @@ function StudentModal({
           onClick={onClick}
           closeButton
         >
-          <Modal.Title>Add Grade</Modal.Title>
+          <Modal.Title>Add {header} Grade</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <form action="" method="POST">
