@@ -89,7 +89,7 @@ function HomePage() {
             makeTeacherList={makeTeacherList}
           />
           <CardContainer
-            stuCards={students}
+            students={students}
             onClickDelete={deleteStudent}
             makeTeacherList={makeTeacherList}
             searchTerms={searchTerms}
