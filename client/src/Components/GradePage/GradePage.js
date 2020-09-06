@@ -29,29 +29,38 @@ function GradePage() {
 
   //? works!!
   const handleInputChange = (e) => {
-    setNewGrade({subject: e.target.getAttribute('data-subject'), score: e.target.value.trim()});
+    setNewGrade({
+      subject: e.target.getAttribute("data-subject"),
+      score: e.target.value.trim(),
+    });
   };
-
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
     // if(!Number.isInteger(newGrade.score)){
     //   console.log("NEEDS TO BE AN INTEGER")
     // }else{
-      const grades = students[0].grades;
-      var index = 0;
-      for (var i=0; i < grades.length; i++) {
-        if (grades[i].subject === newGrade.subject){
-          index = i;
-        }
-      };
-      console.log(`index: ${index} grades: ${grades} grades[index]: ${grades[index]}`);
-      grades[index].scores.push(newGrade.score);
-  
-      API.updateStudent(students[0]._id, students[0]).then((res) => {
-        console.log("DONE MAYBE")
-      });
-      //! NEED TO MOVE MODAL OUT TO THIS LEVEL SO I CAN USE IT HERE
+    const grades = students[0].grades;
+    var index = 0;
+    for (var i = 0; i < grades.length; i++) {
+      if (grades[i].subject === newGrade.subject) {
+        index = i;
+      }
+    }
+    console.log(
+      `index: ${index} grades: ${grades} grades[index]: ${grades[index]}`
+    );
+    grades[index].scores.push(newGrade.score);
+
+    API.updateStudent(students[0]._id, students[0]).then((res) => {
+      console.log("DONE MAYBE");
+    });
+
+    setNewGrade({
+      subject: "",
+      score: 0,
+    });
+    //! NEED TO MOVE MODAL OUT TO THIS LEVEL SO I CAN USE IT HERE
     // }
   };
 
