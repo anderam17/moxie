@@ -2,16 +2,12 @@ import React from "react";
 import MyButton from "../Button/Button";
 import { Modal, Button } from "react-bootstrap";
 
-//I just need to make sure value is what I need it to be so that it pushes to the state correctly. And I need to make sure the handle form submit and handleInputChange work correctly
-
-//!!! THIS NAME NEEDS TO CHANGE
 function GradeModal({
   show,
   onClick,
   handleFormSubmit,
   handleInputChange,
   header,
-  //* THIS MIGHT NEED TO CHANGE
   newGrade: {score},
   setNewGrade
 }) {
@@ -39,7 +35,6 @@ function GradeModal({
                 type="text"
                 className="form-control"
                 placeholder="0-105"
-                //! ONLY THING I MIGHT NEED TO CHANGE
                 value={score}
                 data-subject={header}
                 name="score"

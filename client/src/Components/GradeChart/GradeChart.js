@@ -5,6 +5,12 @@ import GradeModal from "../GradeModal/GradeModal";
 
 function GradeChart({data, header, handleFormSubmit, handleInputChange, newGrade, setNewGrade}) {
 
+const makeLabels = () => {
+  const labels = new Array(data.length);
+  return labels;
+};
+
+
 const [modalStatus, setModalStatus] = useState({
     open: false,
   });
@@ -14,11 +20,11 @@ const [modalStatus, setModalStatus] = useState({
   const closeModal = () => setModalStatus({ open: false });
 
   Chart.defaults.global.defaultFontFamily = "'PT Sans', sans-serif";
+  // Chart.defaults.global.legend.display = false;
   Chart.scaleService.updateScaleDefaults("linear", {
-      //* I did this to set the Y-axis of the chart
     ticks: {
       min: 0,
-      max: 100,
+      max: 105,
     },
   });
 
@@ -30,23 +36,49 @@ const [modalStatus, setModalStatus] = useState({
     new Chart(myChartRef, {
       type: "line",
       data: {
-        //* Get Data from somewhere and put it here
-        //* Actually, might just keep these consistent for myself
-        // * If you have more labels than data, the labels will continue and your data will stop mid graph
-        // * If you have more data than labels, your data will stop at however many labels you have 
-        labels: ["Aug 15", "Aug 16", "Aug 17", "Aug 18", "Aug 19"],
+        labels: makeLabels(),
         datasets: [
           {
             label: "GRADES",
-            //! Get Data from somewhere and put it here
             data: data,
-            // fill: false,
+            borderColor: "#000000",
+          },
+          {
+            label: "D",
+            data: [60, 60, 60, 60, 60, 60, 60, 60],
+            fill: false,
             borderColor: "#FF0000",
+          },
+          {
+            label: "C",
+            data: [70, 70, 70, 70, 70, 70, 70, 70],
+            fill: false,
+            borderColor: "#FFA500",
+          },
+          {
+            label: "B",
+            data: [80, 80, 80, 80, 80, 80, 80, 80],
+            fill: false,
+            borderColor: "#FFFF00",
+          },
+          {
+            label: "A",
+            data: [90, 90, 90, 90, 90, 90, 90, 90],
+            fill: false,
+            borderColor: "#00FF00",
           },
         ],
       },
-      //* Not completely sure what all this does
-      options: {},
+
+      options: {
+        scales: {
+          xAxes: [{
+              ticks: {
+                  display: false 
+              }
+          }]
+      }
+      },
     });
   });
 
@@ -65,7 +97,6 @@ const [modalStatus, setModalStatus] = useState({
     </div>
     <GradeModal 
     onClick={() => closeModal()}
-    //THESE 3 THINGS I WILL NEED TO CHANGE
     handleFormSubmit={handleFormSubmit}
     handleInputChange={handleInputChange}
     newGrade={newGrade}
