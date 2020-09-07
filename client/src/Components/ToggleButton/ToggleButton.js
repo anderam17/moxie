@@ -5,9 +5,10 @@ function ToggleButton({ cardView, setCardView }) {
   return (
     <BootstrapSwitchButton
         checked={cardView}
-        onlabel='Card'
-        offlabel='List'
-        width={75}
+        onlabel='List View'
+        offlabel='Card View'
+        width={100}
+        height={25}
         size={"sm"}
         onChange={(checked) => { setCardView(checked); }}
     />

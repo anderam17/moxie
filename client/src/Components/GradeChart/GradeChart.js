@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Chart from "chart.js";
 import Button from "../Button/Button";
 import GradeModal from "../GradeModal/GradeModal";
+import "./GradeChart.css"
 
 function GradeChart({data, header, handleFormSubmit, handleInputChange, newGrade, setNewGrade}) {
 
@@ -20,7 +21,6 @@ const [modalStatus, setModalStatus] = useState({
   const closeModal = () => setModalStatus({ open: false });
 
   Chart.defaults.global.defaultFontFamily = "'PT Sans', sans-serif";
-  // Chart.defaults.global.legend.display = false;
   Chart.scaleService.updateScaleDefaults("linear", {
     ticks: {
       min: 0,
@@ -41,13 +41,20 @@ const [modalStatus, setModalStatus] = useState({
           {
             label: "GRADES",
             data: data,
+            // fill: false,
             borderColor: "#000000",
           },
           {
-            label: "D",
-            data: [60, 60, 60, 60, 60, 60, 60, 60],
+            label: "A",
+            data: [90, 90, 90, 90, 90, 90, 90, 90],
             fill: false,
-            borderColor: "#FF0000",
+            borderColor: "#0000FF",
+          },
+          {
+            label: "B",
+            data: [80, 80, 80, 80, 80, 80, 80, 80],
+            fill: false,
+            borderColor: "#006400",
           },
           {
             label: "C",
@@ -56,16 +63,10 @@ const [modalStatus, setModalStatus] = useState({
             borderColor: "#FFA500",
           },
           {
-            label: "B",
-            data: [80, 80, 80, 80, 80, 80, 80, 80],
+            label: "D",
+            data: [60, 60, 60, 60, 60, 60, 60, 60],
             fill: false,
-            borderColor: "#FFFF00",
-          },
-          {
-            label: "A",
-            data: [90, 90, 90, 90, 90, 90, 90, 90],
-            fill: false,
-            borderColor: "#00FF00",
+            borderColor: "#FF0000",
           },
         ],
       },
@@ -84,7 +85,8 @@ const [modalStatus, setModalStatus] = useState({
 
   return (
       <>
-    <div>
+    <div class="subject-chart">
+      <div id="chart-header">
       <h1>{header}</h1>
       <Button
           onClick={openModal}
@@ -93,7 +95,10 @@ const [modalStatus, setModalStatus] = useState({
           title="Add Grade"
           dataTarget="#gradeModal"
         />
+      </div>
+        <div class="individual-chart">
       <canvas id="myChart" ref={chartRef} />
+        </div>
     </div>
     <GradeModal 
     onClick={() => closeModal()}

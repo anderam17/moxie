@@ -1,0 +1,21 @@
+.individual-chart{
+    width: 90% !important;
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+}
+#chart-header{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+.subject-chart{
+    margin: 10px 0;
+    border: 1px solid rgb(0, 0, 5);
+    border-radius: 10px;
+    padding: 20px;
+    width: 80%;
+}
+#addNewGrade{
+    margin-left: 30px;
+}

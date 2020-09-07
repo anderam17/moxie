@@ -13,14 +13,18 @@ function ChartContainer({students, handleFormSubmit, handleInputChange, newGrade
 
   return (
     <>
-      <div className="col-md-9 lead">
+      <div className="col-md-9 lead" id="chart-container">
+      <div id="chart-container-header">
       {students[0] ? <h3>{students[0].first_name} {students[0].last_name}</h3> : <h3>Select Student to See Grades</h3>}
+      </div>
+      <div id="chart-container-body">
             {students[0] && students[0].grades.map((classSubject) =>{
               return (
                 <GradeChart data={classSubject.scores} header={classSubject.subject} key={classSubject.subject} handleFormSubmit={handleFormSubmit} handleInputChange={handleInputChange} newGrade={newGrade} setNewGrade={setNewGrade}/>
               )
             })
             }
+      </div>
 
       </div>
     </>

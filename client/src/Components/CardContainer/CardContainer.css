@@ -9,8 +9,12 @@
     flex-wrap: wrap;
     justify-content: space-around;
 }
+
 #card-container-header {
-    font-family: sans-serif;
-    font-size: 30px;
+    font-size: 24px;
+    margin: 10px 15px 0 0;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between; 
     /* font-variant: small-caps; */
 }

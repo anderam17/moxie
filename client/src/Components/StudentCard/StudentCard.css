@@ -3,11 +3,11 @@
     margin: 10px;
 }
 #cardBody{
-    font-size: 22px;
+    font-size: 18px;
 }
 .student-name {
     font-family: sans-serif;
-    font-size: 24px;
+    font-size: 20px;
 }
 .blue-stu {
     background: rgb(208, 214, 245);
@@ -21,12 +21,3 @@
     background: rgb(243, 175, 163);
     border: 1px solid red;
 }
-/* .darkblue-btn {
-    background: rgb(177, 177, 243);
-}
-.yellow-btn {
-    background: rgb(253, 253, 137);
-}
-.red-btn {
-    background: rgb(224, 127, 127);
-} */

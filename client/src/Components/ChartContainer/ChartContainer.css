@@ -1,3 +1,19 @@
-.chart-container {
+/* .chart-container {
     width: 45%;
+} */
+#chart-container {
+    background-image: url("../../assets/dot-grid.jpg");
+}
+#chart-container-header {
+    font-size: 24px;
+    margin: 10px 15px 0 0;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center; 
+    background: rgba(0, 0, 0, 0.404);
+    padding: 10px 0 0 10px;
+    width: 40%;
+    border: 1px solid rgb(0, 0, 5);
+    border-radius: 10px;
+    /* font-variant: small-caps; */
 }
