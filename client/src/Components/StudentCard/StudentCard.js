@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import API from "../../utils/api";
 import StudentModal from "../StudentModal/StudentModal";
+import "./StudentCard.css"
 
 function StudentCard({
   student,
@@ -50,8 +51,9 @@ function StudentCard({
 
   return (
     <>
-      <div data-id={student._id} className="card mt-3 col-md-4">
-        <div className="card-header text-center">
+    {/* {student.grade === 6 ? className="card mt-3 col-md-4 blue-stu" : student.grade === 7 ? className="card mt-3 col-md-4 green-stu" : className="card mt-3 col-md-4 red-stu"} */}
+      <div data-id={student._id} id="this-student-card"  className="card mt-3 col-md-4" >
+        <div className={student.grade === 6 ? "card-header text-center blue-stu" : student.grade === 7 ? "card-header text-center green-stu" : "card-header text-center red-stu"}>
           <h5 className="student-name">
             {student.first_name} {student.last_name}
           </h5>

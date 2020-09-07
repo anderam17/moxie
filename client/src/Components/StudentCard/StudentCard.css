@@ -1,0 +1,15 @@
+#this-student-card{
+    /* width: 400px; */
+    margin: 10px;
+}
+
+.blue-stu {
+    background: rgba(11, 11, 230, 0.616);
+}
+
+.green-stu {
+    background: rgb(83, 187, 104);
+}
+.red-stu {
+    background: rgb(240, 117, 95);
+}
