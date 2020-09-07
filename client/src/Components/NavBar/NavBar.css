@@ -10,5 +10,6 @@
     background-image: url("../../assets/white_paperboard.png");
 }
 #moxie-nav-logo {
-    font-size: 30px !important;
+    font-size: 22px !important;
+    letter-spacing: 10px;
 }

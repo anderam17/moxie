@@ -1,6 +1,7 @@
 #moxie-logo {
-background-image: url("../../assets/moxie-logo.png");
-height: 288px;
+/* background-image: url("../../assets/moxie-logo.png"); */
+height: 200px;
+width: 100%;
 background-repeat: no-repeat;
 display: flex;
 justify-content: center;
