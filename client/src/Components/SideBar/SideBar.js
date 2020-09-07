@@ -5,6 +5,7 @@ import Button from "../Button/Button";
 import API from "../../utils/api";
 import TeacherModal from "../TeacherModal/TeacherModal";
 import StudentModal from "../StudentModal/StudentModal";
+import "./SideBar.css"
 
 function SideBar({
   fetchStudents,
@@ -86,7 +87,7 @@ function SideBar({
   return (
     <>
       <div className="sidebar nav flex-column col-md-3 text-center mx-auto">
-        <h3 className="left lead">Filter Students By:</h3>
+        <h3 className="left lead" id="filter-title">Filter Students By:</h3>
         <DropDown
           onChange={filterStudents("teacherId")}
           field="Teacher"

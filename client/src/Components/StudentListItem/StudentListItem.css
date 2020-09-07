@@ -1,0 +1,9 @@
+.student-info {
+    display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 4px double rgb(190, 195, 190);
+        /* margin: 10px 0; */
+        background-color: rgb(245, 250, 247);
+        height: 90px;
+}

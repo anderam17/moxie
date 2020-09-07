@@ -1,0 +1,8 @@
+#moxie-logo {
+background-image: url("../../assets/moxie-logo.png");
+height: 288px;
+background-repeat: no-repeat;
+display: flex;
+justify-content: center;
+align-items: center;
+}

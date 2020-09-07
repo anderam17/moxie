@@ -4,6 +4,7 @@ import NavBar from "../NavBar/NavBar";
 import SideBar from "../SideBar/SideBar";
 import CardContainer from "../CardContainer/CardContainer";
 import API from "../../utils/api";
+import "./HomePage.css";
 
 function HomePage() {
   const [students, setStudents] = useState([]);

@@ -6,3 +6,9 @@
 .btn {
     margin: 0 5px;
 }
+#navbar-header{
+    background-image: url("../../assets/white_paperboard.png");
+}
+#moxie-nav-logo {
+    font-size: 30px !important;
+}

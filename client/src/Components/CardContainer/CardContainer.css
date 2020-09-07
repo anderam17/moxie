@@ -1,0 +1,13 @@
+#card-container {
+    background-image: url("../../assets/dot-grid.jpg");
+}
+#card-container-noflex {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+/* #card-container-flex {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+} */

@@ -18,16 +18,15 @@ function NavBar() {
   const { isAuthenticated } = useAuth0();
   return (
     <>
-      <nav className="navbar sticky-top navbar-light bg-light">
-        <div className="navbar-brand" href="#">
-        <img src="../../../assets/Moxie.png" alt="" />
+      <nav className="navbar sticky-top navbar-light bg-light" id="navbar-header">
+        <div className="navbar-brand" id="moxie-nav-logo">
           MOXIE
         </div>
         <div className="nav-buttons">
         <Button 
         onClick={toHomePage}
         id="homePage"
-        title="HomePage"
+        title="Home"
         />
         <Button 
         onClick={toGradePage}
