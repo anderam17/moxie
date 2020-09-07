@@ -1,22 +1,16 @@
 import React from "react";
+import BootstrapSwitchButton from 'bootstrap-switch-button-react';
 
-function ToggleButton() {
-  // return (
-  //   // <>
-  //   //   <div className="toggle-switch">
-  //   //     <input
-  //   //       type="checkbox"
-  //   //       className="toggle-switch-checkbox"
-  //   //       name="toggleSwitch"
-  //   //       id="toggleSwitch"
-  //   //     />
-  //   //     <label className="toggle-switch-label" htmlFor="toggleSwitch">
-  //   //       <span className="toggle-switch-inner" />
-  //   //       <span className="toggle-switch-switch" />
-  //   //     </label>
-  //   //   </div>
-  //   // </>
-  // )
+function ToggleButton({ cardView, setCardView }) {
+  return (
+    <BootstrapSwitchButton
+        checked={cardView}
+        onlabel='Card'
+        offlabel='List'
+        width={75}
+        onChange={(checked) => { setCardView(checked); }}
+    />
+  )
 }
 
 export default ToggleButton;

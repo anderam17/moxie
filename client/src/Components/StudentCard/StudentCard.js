@@ -51,7 +51,6 @@ function StudentCard({
 
   return (
     <>
-    {/* {student.grade === 6 ? className="card mt-3 col-md-4 blue-stu" : student.grade === 7 ? className="card mt-3 col-md-4 green-stu" : className="card mt-3 col-md-4 red-stu"} */}
       <div data-id={student._id} id="this-student-card"  className="card mt-3 col-md-4" >
         <div className={student.grade === 6 ? "card-header text-center blue-stu" : student.grade === 7 ? "card-header text-center green-stu" : "card-header text-center red-stu"}>
           <h5 className="student-name">
@@ -60,18 +59,18 @@ function StudentCard({
         </div>
         <div className="card-body" id="cardBody">
           <p className="card-text studentGrade">
-            Grade:
+            <b>Grade:  </b>
             <span className="stuGrade">{student.grade} </span>{" "}
           </p>
           <p className="card-text teacher">
-            Homeroom Teacher: <br />{" "}
+          <b>Homeroom Teacher:  </b>{" "}
             <span className="hrTeacher">
               {" "}
               {student.teacherId.first_name} {student.teacherId.last_name}
             </span>{" "}
           </p>
           <p className="card-text studentDetention">
-            Detention:{" "}
+          <b>Detention:  </b>{" "}
             <span className="hasDetention">
               {" "}
               {detention.status ? "Yes" : "No"}
@@ -83,35 +82,35 @@ function StudentCard({
           <div className="btn-group" role="group">
             <button
               type="button"
-              className="btn darkblue"
+              className="btn darkblue-btn"
               data-id={student.id}
               data-toggle="modal"
               onClick={openModal}
               data-target="#updateModal"
               id="edit"
             >
-              Edit
+              EDIT
             </button>
 
             <button
               type="button"
-              className="btn yellow"
+              className="btn yellow-btn"
               data-id={student.id}
               data-detention={student.detention_status}
               id="detentionBtn"
               onClick={toggleDetention}
             >
-              Detention
+              DETENTION
             </button>
 
             <button
               type="button"
-              className="btn red"
+              className="btn red-btn"
               id="deleteBtn"
               data-id={student._id}
               onClick={onClickDelete}
             >
-              Delete
+              DELETE
             </button>
           </div>
         </div>

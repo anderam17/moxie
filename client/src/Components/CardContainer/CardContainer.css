@@ -9,3 +9,8 @@
     flex-wrap: wrap;
     justify-content: space-around;
 }
+#card-container-header {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 30px;
+    /* font-variant: small-caps; */
+}

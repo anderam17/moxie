@@ -2,14 +2,31 @@
     /* width: 400px; */
     margin: 10px;
 }
-
-.blue-stu {
-    background: rgba(11, 11, 230, 0.616);
+#cardBody{
+    font-size: 22px;
 }
-
+.student-name {
+    font-family: 'Red Hat Text', sans-serif;
+    font-size: 24px;
+}
+.blue-stu {
+    background: rgb(208, 214, 245);
+        border: 1px solid blue;
+}
 .green-stu {
-    background: rgb(83, 187, 104);
+    background: rgb(208, 241, 215);
+    border: 1px solid green;
 }
 .red-stu {
-    background: rgb(240, 117, 95);
+    background: rgb(243, 175, 163);
+    border: 1px solid red;
 }
+/* .darkblue-btn {
+    background: rgb(177, 177, 243);
+}
+.yellow-btn {
+    background: rgb(253, 253, 137);
+}
+.red-btn {
+    background: rgb(224, 127, 127);
+} */
