@@ -66,10 +66,10 @@ function StudentListItem({
               {student.first_name} {student.last_name}
             </h4>
           </div>
-          <div className="col-md-2 student-info">
+          <div className="col-md-1 student-info">
             <p><b>Grade: </b>{student.grade}</p>
           </div>
-          <div className="col-md-2 student-info">
+          <div className="col-md-4 student-info">
             <p>
               <b>Homeroom Teacher:</b> {student.teacherId.first_name}{" "}
               {student.teacherId.last_name}
@@ -79,7 +79,7 @@ function StudentListItem({
             <p><b>Detention:</b> {student.detention_status ? "Yes" : "No"}</p>
           </div>
 
-          <div className="col-md-4 student-info">
+          <div className="col-md-3 student-info">
             <div className="btn-group" role="group">
               <button
                 type="button"
