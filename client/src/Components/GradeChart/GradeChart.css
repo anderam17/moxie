@@ -9,6 +9,12 @@
     flex-wrap: nowrap;
     justify-content: space-between;
 }
+#subject-title {
+    background: rgba(216, 219, 22, 0.404);
+    border: 1px solid rgb(0, 0, 5);
+    border-radius: 10px;
+    padding: 5px;
+}
 .subject-chart{
     margin: 10px 0;
     border: 1px solid rgb(0, 0, 5);

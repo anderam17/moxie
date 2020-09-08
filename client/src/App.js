@@ -9,9 +9,8 @@ import GradePage from "./Components/GradePage/GradePage"
 
 
 function App() {
-  // const { isAuthenticated } = useAuth0();
-  //   if (isAuthenticated) {
-    //! I have this commented out so that I dont have to sign in every tiem
+  const { isAuthenticated } = useAuth0();
+    if (isAuthenticated) {
       return (
       <BrowserRouter>
         <Switch>
@@ -20,11 +19,11 @@ function App() {
         </Switch>
       </BrowserRouter>
       )
-    // } else{
-    //   return (
-    //     <LogInPage />
-    //     )
-    // };
+    } else{
+      return (
+        <LogInPage />
+        )
+    };
 }
 
 export default App;

@@ -27,7 +27,6 @@ function GradePage() {
     score: 0,
   });
 
-  //? works!!
   const handleInputChange = (e) => {
     setNewGrade({
       subject: e.target.getAttribute("data-subject"),

@@ -82,7 +82,7 @@ function StudentCard({
           <div className="btn-group" role="group">
             <button
               type="button"
-              className="btn darkblue-btn"
+              className="btn"
               data-id={student.id}
               data-toggle="modal"
               onClick={openModal}
@@ -94,7 +94,7 @@ function StudentCard({
 
             <button
               type="button"
-              className="btn yellow-btn"
+              className="btn"
               data-id={student.id}
               data-detention={student.detention_status}
               id="detentionBtn"
@@ -105,7 +105,7 @@ function StudentCard({
 
             <button
               type="button"
-              className="btn red-btn"
+              className="btn"
               id="deleteBtn"
               data-id={student._id}
               onClick={onClickDelete}

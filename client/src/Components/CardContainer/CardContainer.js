@@ -21,9 +21,9 @@ function CardContainer({
       {/* <div className="col-md-9 lead" id="card-container-flex"> */}
         <div id="card-container-header">
           {students[0] ? (
-            <p>Students:</p>
+            <h3>Students:</h3>
           ) : (
-            <p>Select Criteria to Begin Your Search</p>
+            <h3>Select Criteria to Begin Your Search</h3>
           )}
           <ToggleButton
             cardView={cardView}

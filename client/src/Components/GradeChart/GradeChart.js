@@ -10,7 +10,17 @@ const makeLabels = () => {
   const labels = new Array(data.length);
   return labels;
 };
+let aData = [];
+let bData = [];
+let cData = [];
+let dData = [];
 
+data.forEach((item) => {
+  aData.push(90);
+  bData.push(80);
+  cData.push(70);
+  dData.push(60);
+});
 
 const [modalStatus, setModalStatus] = useState({
     open: false,
@@ -41,30 +51,29 @@ const [modalStatus, setModalStatus] = useState({
           {
             label: "GRADES",
             data: data,
-            // fill: false,
             borderColor: "#000000",
           },
           {
             label: "A",
-            data: [90, 90, 90, 90, 90, 90, 90, 90],
+            data: aData,
             fill: false,
             borderColor: "#0000FF",
           },
           {
             label: "B",
-            data: [80, 80, 80, 80, 80, 80, 80, 80],
+            data: bData,
             fill: false,
             borderColor: "#006400",
           },
           {
             label: "C",
-            data: [70, 70, 70, 70, 70, 70, 70, 70],
+            data: cData,
             fill: false,
             borderColor: "#FFA500",
           },
           {
             label: "D",
-            data: [60, 60, 60, 60, 60, 60, 60, 60],
+            data: dData,
             fill: false,
             borderColor: "#FF0000",
           },
@@ -87,7 +96,7 @@ const [modalStatus, setModalStatus] = useState({
       <>
     <div class="subject-chart">
       <div id="chart-header">
-      <h1>{header}</h1>
+      <h3 id="subject-title">{header.toUpperCase()}</h3>
       <Button
           onClick={openModal}
           id="addNewGrade"

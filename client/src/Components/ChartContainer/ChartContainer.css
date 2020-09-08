@@ -10,10 +10,9 @@
     display: flex;
     flex-wrap: nowrap;
     justify-content: center; 
-    background: rgba(0, 0, 0, 0.404);
+    background: rgba(235, 220, 15, 0.404);
     padding: 10px 0 0 10px;
     width: 40%;
     border: 1px solid rgb(0, 0, 5);
     border-radius: 10px;
-    /* font-variant: small-caps; */
 }
