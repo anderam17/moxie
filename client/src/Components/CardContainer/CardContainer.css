@@ -12,18 +12,12 @@
 
 #card-container-header {
     font-size: 24px;
-    margin: 10px 15px 0 0;
+    margin: 10px 1px 0 0;
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between; 
-    background: rgba(235, 220, 15, 0.404);
-    padding: 10px 0 0 10px;
-    /* width: 40%; */
-    border: 1px solid rgb(0, 0, 5);
+    background: rgba(231, 231, 231, 0.404);
+    padding: 12px 15px 10px 15px;
+    border: 1px solid rgb(0, 0, 0);
     border-radius: 10px;
-    /* font-size: 24px;
-    margin: 10px 15px 0 0;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;  */
 }

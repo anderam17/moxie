@@ -15,10 +15,7 @@ function CardContainer({
 
   return (
     <>
-      {/* //* THIS ONE IF CARD */}
       <div className="col-md-9 lead" id="card-container">
-      {/* //* THIS ONE IF LIST */}
-      {/* <div className="col-md-9 lead" id="card-container-flex"> */}
         <div id="card-container-header">
           {students[0] ? (
             <h3>Students:</h3>

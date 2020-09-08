@@ -8,6 +8,7 @@ function ToggleButton({ cardView, setCardView }) {
         onlabel='List View'
         offlabel='Card View'
         width={100}
+        onstyle="warning"
         height={25}
         size={"sm"}
         onChange={(checked) => { setCardView(checked); }}
