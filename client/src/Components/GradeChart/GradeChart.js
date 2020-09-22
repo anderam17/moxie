@@ -10,6 +10,14 @@ const makeLabels = () => {
   const labels = new Array(data.length);
   return labels;
 };
+
+//* attempt to solve problem by calling for different labels if no data
+const makeLabelsNoData = () => {
+  const labels = new Array(5);
+  return labels;
+}
+console.log(makeLabels())
+//creates a data value for each point of data so that the grade level lines span the entire 
 let aData = [];
 let bData = [];
 let cData = [];
@@ -26,12 +34,13 @@ const [modalStatus, setModalStatus] = useState({
     open: false,
   });
 
-
+//controls opening and closing of the add grade modal 
   const openModal = () => setModalStatus({ open: true });
   const closeModal = () => setModalStatus({ open: false });
 
   Chart.defaults.global.defaultFontFamily = "'PT Sans', sans-serif";
   Chart.scaleService.updateScaleDefaults("linear", {
+    //sets y-axis value to be between 0 and 105, all possible grades a student can recieve
     ticks: {
       min: 0,
       max: 105,
@@ -46,13 +55,16 @@ const [modalStatus, setModalStatus] = useState({
     new Chart(myChartRef, {
       type: "line",
       data: {
-        labels: makeLabels(),
+        //* attempt to solve problem by calling for different labels if no data
+        labels: (data.length != 0 ? makeLabels() : makeLabelsNoData()),
         datasets: [
+          //display grade data from student
           {
             label: "GRADES",
             data: data,
             borderColor: "#000000",
           },
+          //create horizontal graph lines to show letter grade threshold
           {
             label: "A",
             data: aData,
@@ -94,7 +106,7 @@ const [modalStatus, setModalStatus] = useState({
 
   return (
       <>
-    <div class="subject-chart">
+    <div className="subject-chart">
       <div id="chart-header">
       <h3 id="subject-title">{header.toUpperCase()}</h3>
       <Button
@@ -105,7 +117,7 @@ const [modalStatus, setModalStatus] = useState({
           dataTarget="#gradeModal"
         />
       </div>
-        <div class="individual-chart">
+        <div className="individual-chart">
       <canvas id="myChart" ref={chartRef} />
         </div>
     </div>

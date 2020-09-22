@@ -13,6 +13,7 @@ function SideBar({
   onChange,
   onSubmit,
   makeTeacherList,
+  createGradesArray
 }) {
   const [newTeacher, setNewTeacher] = useState({
     first_name: "",
@@ -20,6 +21,16 @@ function SideBar({
     subject: "",
     students: [],
   });
+
+  
+  // createGradesArray();
+  //!!! THIS XXX WORKS
+  //? It is not actually assigning the array to the student for some reason
+  //When I call the function here like this, it works;
+  // console.log(createGradesArray())
+  let stuGrades = createGradesArray();
+  console.log(stuGrades);
+
   const [newStudent, setNewStudent] = useState({
     first_name: "",
     last_name: "",
@@ -27,6 +38,7 @@ function SideBar({
     detention_status: false,
     teacherId: "",
     grades: [{subject: "Math", scores: [10,20,30,40]}, {subject: "Science", scores: [70, 60, 50, 40]} ,{subject: "History", scores:[95, 80, 77, 94]}],
+    // grades: stuGrades
   });
 
   const [modalStatus, setModalStatus] = useState({

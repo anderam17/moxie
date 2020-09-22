@@ -21,8 +21,19 @@ function HomePage() {
     });
   }, []);
 
+  //!!!
+  const createGradesArray = () => {
+    return teachers.map((teacher) => {
+      return {
+        subject: teacher.subject,
+        scores: []
+      };
+    });
+  };
+
   const fetchTeachers = () => {
     API.getTeachers().then((response) => {
+      console.log(`HOMEPAGE TEST ${response}`)
       setTeachers(response.data);
     });
   };
@@ -88,6 +99,7 @@ function HomePage() {
             onChange={handleChange}
             onSubmit={handleSubmit}
             makeTeacherList={makeTeacherList}
+            createGradesArray={createGradesArray}
           />
           <CardContainer
             students={students}

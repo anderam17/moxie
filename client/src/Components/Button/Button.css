@@ -1,7 +1,5 @@
 .moxie-buttons {
-    background: #002020bd;
-    font-size: 18px;
-    color: white;
     margin-top: 10px !important;
-    /* color: #ffde59; */
+    margin-bottom: 10px !important;
+    height: 38px;
 }

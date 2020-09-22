@@ -2,7 +2,8 @@ import React from "react";
 import Button from "../Button/Button"
 import { useAuth0 } from "@auth0/auth0-react";
 import{ useHistory } from "react-router-dom";
-import "./NavBar.css"
+import BurgerMenu from "../BurgerMenu/BurgerMenu";
+import "./NavBar.css";
 
 function NavBar() {
   const { loginWithRedirect, logout } = useAuth0();
@@ -40,6 +41,7 @@ function NavBar() {
         title={isAuthenticated ? "Sign Out" : "Sign In"}
         />
         </div>
+        {/* <BurgerMenu /> */}
       </nav>
     </>
   );

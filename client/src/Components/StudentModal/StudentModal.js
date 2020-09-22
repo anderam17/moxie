@@ -75,7 +75,7 @@ function StudentModal({
           </form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={onClick}>
+          <Button variant="dark" onClick={onClick}>
             Close
           </Button>
           <MyButton

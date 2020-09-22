@@ -29,6 +29,7 @@
     "express-jwt-authz": "^2.4.1",
     "if-env": "^1.0.4",
     "mongoose": "^5.3.16",
+    "react-burger-menu": "^2.7.1",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0"
   }
